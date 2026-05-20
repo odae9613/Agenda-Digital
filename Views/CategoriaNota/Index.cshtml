@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ImOdNotes.Core.Entities.CategoriaNota>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideNotas");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<div>
+			<h3>Categorias de notas</h3>
+			<a asp-area="" asp-controller="CategoriaNota"
+				   asp-action="Create"
+				   type="button" class="categoria">
+				<i class="bi bi-plus-square"></i>
+				<span>Agregar categoría de notas</span>
+			</a>
+		</div>
+		<hr />
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						@Html.DisplayNameFor(model => model.Nombre)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Descripcion)
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							@Html.DisplayFor(modelItem => item.Nombre)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Descripcion)
+						</td>
+						<td>
+							<a asp-action="Details" asp-route-id="@item.Id"
+								   type="button"
+								   class="btn btn-outline-primary btn-sm">
+								<i class="bi-journal-text"></i>
+							</a>
+							<a asp-action="Edit" asp-route-id="@item.Id"
+								   type="button"
+								   class="btn btn-outline-primary btn-sm">
+								<i class="bi-pencil"></i>
+							</a>
+							<a asp-action="Delete"
+								   asp-route-id="@item.Id"
+								   type="button"
+								   class="btn btn-outline-secondary btn-sm">
+								<i class="bi-trash text-danger"></i>
+							</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

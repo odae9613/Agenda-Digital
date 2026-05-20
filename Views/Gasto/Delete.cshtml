@@ -1,0 +1,59 @@
+﻿@model ImOdNotes.Core.Entities.Gasto
+
+@{
+	ViewData["Title"] = "Delete";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideGastos");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Eliminar gasto</h3>
+		<h6>¿Estás seguro de eliminar este gasto?</h6>
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Titulo)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Titulo)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Monto)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Monto)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.FechaCreacion)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.FechaCreacion)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.CategoriaGasto)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.CategoriaGasto.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Usuario)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Usuario.Apellido01)
+				</dd>
+			</dl>
+			<form asp-action="Delete">
+				<input type="hidden" asp-for="Id" />
+				<div id="finalFormulario">
+					<a asp-action="Index">Regresar a la Lista</a>
+					<input type="submit" value="Eliminar" class="btn btn-danger" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

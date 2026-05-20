@@ -1,0 +1,50 @@
+﻿@model ImOdNotes.Core.Entities.Nota
+
+@{
+	ViewData["Title"] = "Details";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideNotas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+			<h3>@Html.DisplayFor(model => model.Titulo)</h3>
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Contenido)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Contenido)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.FechaCreacion)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.FechaCreacion)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.CategoriaNota)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.CategoriaNota.Nombre)
+				</dd>
+			</dl>
+			<a asp-action="Favorito"
+				   asp-route-id="@Model.Id"
+				   asp-route-page="@ViewBag.PaginaActual"
+				   type="button" class="btn btn-outline-primary btn-sm">
+				<i class="bi @((Model.Favorito) ? "bi bi-star-fill" : "bi-star")"></i>
+			</a>
+		</div>
+
+		<div id="finalFormulario">
+			<a asp-action="Index">Regresar a la Lista de notas</a>
+			<a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+		</div>
+	</div>
+</div>

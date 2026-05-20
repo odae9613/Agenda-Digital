@@ -1,0 +1,32 @@
+﻿
+#calendar {
+    padding: 10px;
+}
+
+.fc {
+    background-color: #F7F2E8;
+    color: #2D2A32;
+}
+
+.fc-col-header-cell {
+    background-color: #C5D28A;
+    color: #FFFFFF;
+}
+
+.fc-day-today {
+    background-color: #E8D7E7 !important;
+}
+
+.fc-button {
+    background-color: #8FB9B3 !important;
+    border: none !important;
+}
+
+    .fc-button:hover {
+        background-color: #6D9B95 !important;
+    }
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border-color: #D8CCB5;
+}

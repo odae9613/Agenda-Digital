@@ -1,0 +1,85 @@
+﻿@model ImOdNotes.Core.Entities.Usuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideUsuarios");
+	}
+}
+
+<div id="pagina">
+    <div id="principal">
+        <h3>Detalles del usuario: @Html.DisplayFor(model => model.NombreUsuario)</h3>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.NombreUsuario)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.NombreUsuario)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Apellido01)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Apellido01)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Apellido02)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Apellido02)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.FechaNacimiento)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.LugarNacimiento)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.LugarNacimiento)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Nacionalidad)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Nacionalidad)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Genero)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Genero)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.URLFotoPerfil)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.URLFotoPerfil)
+                </dd>
+            </dl>
+        </div>
+        <div id="finalFormulario">
+            <a asp-action="Index">Regresar a la Lista</a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+        </div>
+    </div>
+</div>

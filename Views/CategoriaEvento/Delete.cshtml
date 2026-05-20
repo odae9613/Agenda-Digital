@@ -1,0 +1,38 @@
+﻿@model ImOdNotes.Core.Entities.CategoriaEvento
+
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<div id="pagina">
+	@section MenuPagina {
+		@{
+			await Html.RenderPartialAsync("_MenuAsideEventos");
+		}
+	}
+	<div id="principal">
+		<h3>Eliminar Categoria para eventos</h3>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Nombre)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Nombre)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
+			<form asp-action="Delete">
+				<input type="hidden" asp-for="Id" />
+				<div id="finalFormulario">
+					<a asp-action="Index">Regresar a la Lista de catregorias de eventos</a>
+					<input type="submit" value="Eliminar categoría" class="btn btn-danger" />
+				</div>
+			</form>
+		</dl>
+	</div>
+</div>

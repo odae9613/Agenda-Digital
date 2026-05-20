@@ -1,0 +1,47 @@
+﻿@model ImOdNotes.Core.Entities.Nota
+
+@{
+	ViewData["Title"] = "Delete";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideNotas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Eliminar</h3>
+		<h6>¿Estás seguro de eliminar esta nota?</h6>
+		<hr />
+		<div>
+			<dl class="row">
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Titulo)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Titulo)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.CategoriaNota)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.CategoriaNota.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Contenido)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Contenido)
+				</dd>
+			</dl>
+			<form asp-action="Delete">
+				<input type="hidden" asp-for="Id" />
+				<div id="finalFormulario">
+					<a asp-action="Index">Regresar a la Lista</a>
+					<input type="submit" value="Eliminar" class="btn btn-danger" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

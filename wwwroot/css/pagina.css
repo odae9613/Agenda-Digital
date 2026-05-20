@@ -1,0 +1,50 @@
+﻿
+#pagina {
+    min-height: calc(100vh - 75px);
+    /*width: 100%;*/
+    margin-left: 250px;
+    margin-top: 75px;
+}
+
+#principal{
+    padding: 10px;
+}
+
+#tablaIndex {
+    border: solid 0.5px #00afaf;
+    border-radius: 5px;
+    padding: 5px;
+    /*min-height: 550px;*/
+}
+
+table {
+    border: solid 1px #009191;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100%;
+}
+
+    table thead tr {
+        border-bottom: solid 2px #00afaf;
+        color: #009191;
+    }
+
+form {
+    /*display: flex;
+    flex-direction: row;*/
+    width: 100%;
+    height: auto;
+}
+
+    form div {
+        padding: 5px;
+    }
+
+input {
+    height: auto;
+}
+
+#finalFormulario {
+    display: flex;
+    justify-content: space-around;
+}

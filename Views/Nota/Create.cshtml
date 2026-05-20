@@ -1,0 +1,71 @@
+﻿@model ImOdNotes.Core.Entities.Nota
+
+@{
+	ViewData["Title"] = "Create";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideNotas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Crear nota</h3>
+		<hr />
+		<div class="row">
+			<div class="col-md-12">
+				<form asp-action="Create">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group">
+						<label asp-for="Titulo" class="control-label"></label>
+						<input asp-for="Titulo" class="form-control" />
+						<span asp-validation-for="Titulo" class="text-danger"></span>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label asp-for="CategoriaId" class="control-label"></label>
+							<select asp-for="CategoriaId" class="form-control" asp-items="@ViewBag.CategoriaId as SelectList">
+								<option value="">-- Selecciona una categoría --</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<div>
+								<label>Favorito</label>
+								<button type="button"
+										id="btnFavorito"
+										class="btn btn-outline-primary btn-sm mb-3">
+
+									<i id="iconoFavorito"
+										   class="bi bi-star">
+									</i>
+								</button>
+							</div>
+							<input type="hidden"
+								   asp-for="Favorito"
+								   id="favoritoInput"
+								   value="false"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label asp-for="Contenido" class="control-label"></label>
+						<input asp-for="Contenido" class="form-control" />
+						<span asp-validation-for="Contenido" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<div id="finalFormulario">
+							<a asp-action="Index">Regresar a la Lista</a>
+							<input type="submit" value="Crear" class="btn btn-primary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		@section Scripts {
+			@{
+				await Html.RenderPartialAsync("_ValidationScriptsPartial");
+			}
+		}
+
+	</div>
+</div>

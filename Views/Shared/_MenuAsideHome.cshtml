@@ -1,0 +1,42 @@
+﻿@*  M   E   N   Ú       L   A   T   E   R   A   L       H   O   M   E   *@
+<ul class="mimenu">
+	<li class="nav-item">
+		<a asp-area="" asp-controller="Home" asp-action="Inicio">
+			<span>Inicio</span>
+			<i class="bi bi-house"></i>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a asp-area="" asp-controller="Calendario" asp-action="Calendar">
+			<span>Calendario</span>
+			<i class="bi bi-calendar3"></i>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a asp-area="" asp-controller="Home" asp-action="Privacy">
+			<span>Manual de usuario</span>
+			<i class="bi bi-book"></i>
+		</a>
+	</li>
+	<li>
+		<hr />
+	</li>
+	@if(User.IsInRole("Administrador"))
+	{
+		<li>
+			<hr/>
+		</li>
+		<li class="nav-item">
+			<a asp-area="" asp-controller="Usuario" asp-action="Index">
+				<span>Usuarios</span>
+				<i class="bi bi-people"></i>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a asp-area="" asp-controller="Rol" asp-action="Index">
+				<span>Roles</span>
+				<i class="bi bi-shield-lock"></i>
+			</a>
+		</li>
+	}
+</ul>

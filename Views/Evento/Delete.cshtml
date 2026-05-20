@@ -1,0 +1,71 @@
+﻿@model ImOdNotes.Core.Entities.Evento
+
+@{
+	ViewData["Title"] = "Delete";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideEventos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Eliminar evento</h3>
+		<h6>¿Estás seguro de eliminar este evento?</h6>
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Titulo)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Titulo)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.FechaInicio)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.FechaInicio)
+				</dd>
+				<dt class="col-sm-3">
+					Hora inicio
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.HoraInicio)
+				</dd>
+				<dt class="col-sm-3">
+					Hora Final
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.HoraFinal)
+				</dd>
+				<dt class="col-sm-3">
+					Categoria
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.CategoriaEvento.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Ubicacion)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Ubicacion)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Descripcion)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Descripcion)
+				</dd>
+			</dl>
+			<form asp-action="Delete">
+				<input type="hidden" asp-for="Id" />
+				<div id="finalFormulario">
+					<a asp-action="Index">Regresar a la Lista</a>
+					<input type="submit" value="Eliminar" class="btn btn-danger" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

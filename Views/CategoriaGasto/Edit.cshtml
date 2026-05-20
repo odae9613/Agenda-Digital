@@ -1,0 +1,47 @@
+﻿@model ImOdNotes.Core.Entities.CategoriaGasto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div id="pagina">
+    @section MenuPagina {
+        @{
+            await Html.RenderPartialAsync("_MenuAsideGastos");
+        }
+    }
+    <div id="principal">
+        <h3>Editar categoria de los gastos</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label"></label>
+                        <input asp-for="Descripcion" class="form-control" />
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div id="finalFormulario">
+                            <a asp-action="Index">Regresar a la Lista</a>
+                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

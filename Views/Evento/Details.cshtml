@@ -1,0 +1,65 @@
+﻿@model ImOdNotes.Core.Entities.Evento
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideEventos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Detalles del evento</h3>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Titulo)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Titulo)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.CategoriaEvento)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.CategoriaEvento.Nombre)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.FechaInicio)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.FechaInicio)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.HoraInicio)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.HoraInicio)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.HoraFinal)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.HoraFinal)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Ubicacion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Ubicacion)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
+		</dl>
+		<div id="finalFormulario">
+			<a asp-action="Index">Regresar a la Lista</a>
+			<a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+		</div>
+	</div>
+</div>

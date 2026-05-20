@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ImOdNotes.Core.Entities.Rol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section MenuPagina {
+    @{
+        await Html.RenderPartialAsync("_MenuAsideRoles");
+    }
+}
+
+<div id="pagina">
+    <div id="principal">
+        <h3>Roles</h3>
+        <div id="tablaIndex">
+            <table class="table col-12">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       type="button"
+                                       class="btn btn-outline-primary btn-sm">
+                                    <i class="bi-journal-text"></i>
+                                </a>
+                                <a asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       type="button"
+                                       class="btn btn-outline-primary btn-sm">
+                                    <i class="bi-pencil"></i>
+                                </a>
+                                <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       type="button"
+                                       class="btn btn-outline-secondary btn-sm">
+                                    <i class="bi-trash text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @* P    A   G   I   N   A   C   I   O   N *@
+
+        </div>
+    </div>
+</div>

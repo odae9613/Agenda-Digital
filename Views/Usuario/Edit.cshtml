@@ -1,0 +1,99 @@
+﻿@model ImOdNotes.Core.Entities.Usuario
+
+@{
+	ViewData["Title"] = "Edit";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideUsuarios");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Editar usuario: @Html.DisplayFor(model => model.NombreUsuario)</h3>
+		<hr />
+		<form asp-action="Edit" method="post">
+			@Html.AntiForgeryToken()
+			<div class="row">
+				<div class="col-md-8">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" asp-for="Id" />
+					<div class="form-group">
+						<label asp-for="Nombre" class="control-label"></label>
+						<input asp-for="Nombre" class="form-control" />
+						<span asp-validation-for="Nombre" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="NombreUsuario" class="control-label"></label>
+						<input asp-for="NombreUsuario" class="form-control" />
+						<span asp-validation-for="NombreUsuario" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Apellido01" class="control-label"></label>
+						<input asp-for="Apellido01" class="form-control" />
+						<span asp-validation-for="Apellido01" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Apellido02" class="control-label"></label>
+						<input asp-for="Apellido02" class="form-control" />
+						<span asp-validation-for="Apellido02" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Email" class="control-label"></label>
+						<input asp-for="Email" class="form-control" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="URLFotoPerfil" class="control-label"></label>
+						<input asp-for="URLFotoPerfil" class="form-control" />
+						<span asp-validation-for="URLFotoPerfil" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label asp-for="Genero" class="control-label"></label>
+						<input asp-for="Genero" class="form-control" />
+						<span asp-validation-for="Genero" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Nacionalidad" class="control-label"></label>
+						<input asp-for="Nacionalidad" class="form-control" />
+						<span asp-validation-for="Nacionalidad" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="FechaNacimiento" class="control-label"></label>
+						<input asp-for="FechaNacimiento" type="date" class="form-control" />
+						<span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="LugarNacimiento" class="control-label"></label>
+						<input asp-for="LugarNacimiento" class="form-control" />
+						<span asp-validation-for="LugarNacimiento" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="RolId" class="control-label"></label>
+						<input asp-for="RolId" class="form-control" />
+						<span asp-validation-for="RolId" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Password" class="control-label"></label>
+						<input name="Password" type="password" class="form-control" />
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div id="finalFormulario">
+						<a asp-action="Index">Regresar a la Lista</a>
+						<input type="submit" value="Guardar" class="btn btn-primary" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

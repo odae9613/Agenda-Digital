@@ -1,0 +1,60 @@
+﻿@{
+	ViewData["Titulo"] = "Calendario";
+}
+
+<div id="pagina">
+	@section MenuPagina {
+		@{
+			await Html.RenderPartialAsync("_MenuAsideEventos");
+		}
+	}
+
+	<div id="calendar"></div>
+
+	@section Scripts {
+		<script>
+				document.addEventListener('DOMContentLoaded', function(){
+					var calendarEl = document.getElementById('calendar');
+					var calendar = new FullCalendar.Calendar(calendarEl,{
+						initialView: 'dayGridMonth', //Calendario mensual
+						locale: 'es',
+						buttonText: {
+							today: 'Hoy',
+							month: 'Mes',
+							week: 'Semana',
+							day: 'Dia',
+							list: 'Lista'
+									},
+						noEventsContent: 'No hay eventos para mostrar',
+						timeZone: 'local',
+
+						headerToolbar:{
+							left: 'prev,next today',
+							center: 'title',	//Mes
+							right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+						},
+						events: @Html.Raw(ViewBag.Eventos ?? "[]"),
+										
+						eventDidMount: function(info){
+							const tipo = info.event.extendedProps.tipo;
+							const color = colores[tipo];
+							if (!color)
+							return;
+
+							info.el.style.backgroundColor = color.bg;
+							info.el.style.borderColor = color.border;
+							info.el.style.color = "#ffffff";
+						},
+						eventColor: '#009191',
+						eventBackgroundColor: '#8FB9B3',
+						eventBorderColor: '#6D9B95',
+						eventTextColor: '#ffffff',
+						editable: true,
+						selectable: true,
+					});
+					calendar.render();
+				});
+		</script>
+	}
+</div>
+@* <partial name="_botonEventosListaFavoritos" /> *@

@@ -1,0 +1,38 @@
+﻿@model ImOdNotes.Core.Entities.CategoriaGasto
+
+@{
+	ViewData["Title"] = "Delete";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideGastos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Crear Categoria para gastos</h3>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Nombre)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Nombre)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
+		</dl>
+		<form asp-action="Delete">
+			<input type="hidden" asp-for="Id" />
+			<div id="finalFormulario">
+				<a asp-action="Index">Regresar a la Lista de categorías de gastos</a>
+				<input type="submit" value="Eliminar" class="btn btn-danger" />
+			</div>
+		</form>
+	</div>
+</div>

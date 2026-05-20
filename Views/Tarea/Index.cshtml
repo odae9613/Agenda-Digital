@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ImOdNotes.Core.Entities.Tarea>
+
+@{
+	ViewData["Title"] = "Index";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideTareas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Tareas</h3>
+		<div id="tablaIndex">
+            
+			<table class="table">
+				<thead>
+					<tr>
+						@* <th>
+							@Html.DisplayNameFor(model => model.Completado)
+						</th> *@
+						<th></th>
+						<th>
+							@Html.DisplayNameFor(model => model.Titulo)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Descripcion)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Prioridad)
+						</th>
+						<th>
+							Vencimiento
+						</th>
+						<th>
+							Categoría
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Completado)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Titulo)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Descripcion)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Prioridad)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.FechaVencimiento)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.CategoriaTarea.Nombre)
+							</td>
+							<td>
+								<a asp-action="Details"
+									asp-route-id="@item.Id"
+									type="button"
+									class="btn btn-outline-primary btn-sm">
+									<i class="bi-journal-text"></i>
+								</a>
+								<a asp-action="Edit" 
+									asp-route-id="@item.Id"
+									   type="button"
+									   class="btn btn-outline-primary btn-sm">
+									<i class="bi-pencil"></i>
+								</a>
+								<a asp-action="Favorito"
+									   asp-route-id="@item.Id"
+									   asp-route-page="@ViewBag.PaginaActual"
+									   type="button" class="btn btn-outline-primary btn-sm">
+									<i class="bi @((item.Favorito) ? "bi bi-star-fill text-primary" : "bi-star text-muted")"></i>
+								</a>
+								<a asp-action="Delete" asp-route-id="@item.Id"
+									   type="button"
+									   class="btn btn-outline-secondary btn-sm">
+									<i class="bi-trash text-danger"></i>
+								</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

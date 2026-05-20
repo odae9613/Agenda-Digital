@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ImOdNotes.Core.Entities.Gasto>
+
+@section MenuPagina {
+    @{
+        await Html.RenderPartialAsync("_MenuAsideGastos");
+    }
+}
+<div id="pagina">
+    <h3>Gastos</h3>
+    <div id="tablaIndex">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Titulo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Monto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaCreacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CategoriaGasto)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Monto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaCreacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoriaGasto.Nombre)
+                        </td>
+                        <td>
+                            <a asp-action="Details"
+                                   asp-route-id="@item.Id"
+                                   type="button"
+                                   class="btn btn-outline-primary btn-sm">
+                                <i class="bi-journal-text"></i>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@item.Id"
+                                   type="button"
+                                   class="btn btn-outline-primary btn-sm">
+                                <i class="bi-pencil"></i>
+                            </a>
+                            <a asp-action="Favorito"
+                                   asp-route-id="@item.Id"
+                                   asp-route-page="@ViewBag.PaginaActual"
+                                   type="button" class="btn btn-outline-primary btn-sm">
+                                <i class="bi @((item.Favorito) ? "bi bi-star-fill text-primary" : "bi-star text-muted")"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id"
+                                   type="button"
+                                   class="btn btn-outline-secondary btn-sm">
+                                <i class="bi-trash text-danger"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @* P    A   G   I   N   A   C   I   O   N *@
+        <ul class="pagination mb-0">
+            <li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
+                <a class="page-link"
+                       asp-action="Index"
+                       asp-route-page="@(ViewBag.PaginaActual - 1)">
+                    Anterior
+                </a>
+            </li>
+
+            @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+            {
+                <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+                    <a class="page-link"
+                           asp-action="Index"
+                           asp-route-page="@i">
+                        @i
+                    </a>
+                </li>
+            }
+
+            <li class="page-item @(ViewBag.PaginaActualFav == ViewBag.TotalPaginas ? "disabled" : "")">
+                <a class="page-link"
+                       asp-action="Index"
+                       asp-route-page="@(ViewBag.PaginaActual + 1)">
+                    Siguiente
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

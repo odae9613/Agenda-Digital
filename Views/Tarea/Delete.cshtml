@@ -1,0 +1,74 @@
+﻿@model ImOdNotes.Core.Entities.Tarea
+
+@{
+	ViewData["Title"] = "Delete";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideTareas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Tarea</h3>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Titulo)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Titulo)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Completado)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Completado)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Prioridad)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Prioridad)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.FechaVencimiento)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.FechaVencimiento)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.FechaCreacion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.FechaCreacion)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.FechaActualizacion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.FechaActualizacion)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.CategoriaTarea)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.CategoriaTarea.Nombre)
+			</dd>
+			<dt class="col-sm-3">
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
+			<dd class="col-sm-9">
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
+		</dl>
+    
+		<form asp-action="Delete">
+			<input type="hidden" asp-for="Id" />
+			<a asp-action="Index">Regresar a la lista de tareas</a>
+			<input type="submit" value="Eliminar tarea" class="btn btn-danger" />
+		</form>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model ImOdNotes.Core.Entities.Rol
+
+@{
+    ViewData["Title"] = "Delete";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideRoles");
+	}
+}
+
+<div id="pagina">
+    <div id="principal">
+        <h3>Eliminar rol: @Html.DisplayFor(model => model.Nombre)</h3>
+        <h6>¿Estás seguro de eliminar este rol?</h6>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+            </dl>
+    
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div id="finalFormulario">
+                    <a asp-action="Index">Regresar a la Lista</a>
+                    <input type="submit" value="Eliminar rol" class="btn btn-danger" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

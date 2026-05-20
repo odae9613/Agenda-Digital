@@ -1,0 +1,35 @@
+﻿@model ImOdNotes.Core.Entities.CategoriaEvento
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideEventos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Detalles de la categoria evento</h3>
+		<hr />
+		<dl class="row">
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Nombre)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Nombre)
+			</dd>
+			<dt class="col-sm-2">
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</dt>
+			<dd class="col-sm-10">
+				@Html.DisplayFor(model => model.Descripcion)
+			</dd>
+		</dl>
+		<div id="finalFormulario">
+			<a asp-action="Index">Regresar a la Lista</a>
+			<a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+		</div>
+	</div>
+</div>

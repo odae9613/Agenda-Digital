@@ -1,0 +1,363 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.RootNamespace = ImOdNotes
+build_property.RootNamespace = ImOdNotes
+build_property.ProjectDir = C:\Users\valla\Desktop\Agenda-Digital\ImOdNotes\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\valla\Desktop\Agenda-Digital\ImOdNotes
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Calendario/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJpb1xDYWxlbmRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaEvento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhRXZlbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaEvento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhRXZlbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaEvento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhRXZlbnRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaEvento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhRXZlbnRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaEvento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhRXZlbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaGasto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhR2FzdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaGasto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhR2FzdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaGasto/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhR2FzdG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaGasto/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhR2FzdG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaGasto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhR2FzdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaNota/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaNota/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaNota/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaNota/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaNota/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhTm90YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaObjetivo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhT2JqZXRpdm9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaObjetivo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhT2JqZXRpdm9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaObjetivo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhT2JqZXRpdm9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaObjetivo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhT2JqZXRpdm9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaObjetivo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhT2JqZXRpdm9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaTarea/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhVGFyZWFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaTarea/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhVGFyZWFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaTarea/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhVGFyZWFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaTarea/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhVGFyZWFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/CategoriaTarea/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhVGFyZWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Evento/ListaFavoritos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRvXExpc3RhRmF2b3JpdG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Balance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cQmFsYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Gasto/ListaFavoritos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FzdG9cTGlzdGFGYXZvcml0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Home/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmljaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Nota/ListaFavoritos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90YVxMaXN0YUZhdm9yaXRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Objetivo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZXRpdm9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Objetivo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZXRpdm9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Objetivo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZXRpdm9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Objetivo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZXRpdm9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Objetivo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZXRpdm9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Rol/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Rol/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Rol/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Rol/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Rol/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideEventos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVFdmVudG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideGastos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVHYXN0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideNotas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVOb3Rhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideTareas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVUYXJlYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_MenuAsideUsuarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51QXNpZGVVc3Vhcmlvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Tarea/ListaFavoritos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcTGlzdGFGYXZvcml0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Usuario/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/valla/Desktop/Agenda-Digital/ImOdNotes/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-kbebztc336

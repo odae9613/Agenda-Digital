@@ -1,0 +1,42 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /*background-color: aliceblue;*/
+    /*background-color: #EDECBD;*/
+    /*background-color: #FAC1B5;*/
+    background-color: #EFE6D3;
+    border-bottom: 1px solid #D8CCB5;
+    height: 75px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+header img{
+    height: 50px;
+    padding-left: 10px;
+}
+
+body {
+    background-color: #F7F2E8;
+    color: #2D2A32;
+}
+
+.logout{
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+}
+
+.card,
+.panel,
+.resumen,
+.widget {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/*  B   A   L   A   N   C   E  */
+

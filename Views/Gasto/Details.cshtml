@@ -1,0 +1,55 @@
+﻿@model ImOdNotes.Core.Entities.Gasto
+
+@{
+	ViewData["Title"] = "Details";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideGastos");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h3>Detalles del gasto</h3>
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Titulo)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Titulo)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Monto)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Monto)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.FechaCreacion)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.FechaCreacion)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.CategoriaGasto)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.CategoriaGasto.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					@Html.DisplayNameFor(model => model.Usuario)
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Usuario.Apellido01)
+				</dd>
+			</dl>
+		</div>
+		<div id="finalFormulario">
+			<a asp-action="Index">Regresar a la Lista</a>
+			<a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+		</div>
+	</div>
+</div>

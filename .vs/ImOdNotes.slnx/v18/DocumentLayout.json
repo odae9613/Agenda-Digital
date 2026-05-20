@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|c:\\users\\valla\\desktop\\agenda-digital\\imodnotes\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|solutionrelative:views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|c:\\users\\valla\\desktop\\agenda-digital\\imodnotes\\views\\usuario\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|solutionrelative:views\\usuario\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|c:\\users\\valla\\desktop\\agenda-digital\\imodnotes\\wwwroot\\css\\inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6206978-2F7C-7D2C-DC6C-8B3BE6690B08}|ImOdNotes.csproj|solutionrelative:wwwroot\\css\\inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Registro.cshtml",
+              "DocumentMoniker": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\Views\\Usuario\\Registro.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\Registro.cshtml",
+              "ToolTip": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\Views\\Usuario\\Registro.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\Registro.cshtml",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAIwKgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-20T15:17:30.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\Views\\Usuario\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\Views\\Usuario\\Login.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\Login.cshtml",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAAAJYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-20T15:12:13.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "inicio.css",
+              "DocumentMoniker": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\wwwroot\\css\\inicio.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\inicio.css",
+              "ToolTip": "C:\\Users\\valla\\Desktop\\Agenda-Digital\\ImOdNotes\\wwwroot\\css\\inicio.css",
+              "RelativeToolTip": "wwwroot\\css\\inicio.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-05-20T15:11:17.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+﻿@model ImOdNotes.Core.Entities.Evento
+
+@{
+	ViewData["Title"] = "Create";
+}
+@{
+	var categoria = ViewBag.CategoriaId as SelectList;
+}
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideEventos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Crear evento</h3>
+		<hr />
+		<div>
+			<div>
+				<form asp-action="Create" method="post">
+					<div asp-validation-summary="All" class="text-danger"></div>
+					<div class="form-group">
+						<label asp-for="Titulo" class="control-label"></label>
+						<input asp-for="Titulo" class="form-control" />
+						<span asp-validation-for="Titulo" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Descripcion" class="control-label"></label>
+						<input asp-for="Descripcion" class="form-control" />
+						<span asp-validation-for="Descripcion" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Ubicacion" class="control-label"></label>
+						<input asp-for="Ubicacion" class="form-control" />
+						<span asp-validation-for="Ubicacion" class="text-danger"></span>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label asp-for="FechaInicio" class="control-label"></label>
+							<input asp-for="FechaInicio" class="form-control" type="date" />
+							<span asp-validation-for="FechaInicio" class="text-danger"></span>
+						</div>
+						<div class="col-md-4">
+							<label asp-for="HoraInicio" class="control-label"></label>
+							<input asp-for="HoraInicio" class="form-control" type="time" />
+							<span asp-validation-for="HoraInicio" class="text-danger"></span>
+						</div>
+						<div class="col-md-4">
+							<label asp-for="HoraFinal" class="control-label"></label>
+							<input asp-for="HoraFinal" class="form-control" type="time" />
+							<span asp-validation-for="HoraFinal" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label asp-for="CategoriaId" class="control-label"></label>
+								<select asp-for="CategoriaId" class="form-control" asp-items="@ViewBag.CategoriaId">
+									<option value="">-- Selecciona una categoría para el evento --</option>
+								</select>
+								<span asp-validation-for="CategoriaId" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div>
+								<label>Favorito</label>
+								<button type="button"
+										id="btnFavorito"
+										class="btn btn-outline-primary btn-sm mb-3">
+
+									<i id="iconoFavorito"
+										   class="bi bi-star">
+									</i>
+								</button>
+							</div>
+							<input type="hidden"
+								   asp-for="Favorito"
+								   id="favoritoInput"
+								   value="false" />
+						</div>
+					</div>
+					<div id="finalFormulario">
+						<div>
+							<a asp-action="Index">Regresar a la Lista</a>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Crear" class="btn btn-primary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		@section Scripts {
+			@{
+				await Html.RenderPartialAsync("_ValidationScriptsPartial");
+			}
+		}
+
+	</div>
+</div>

@@ -1,0 +1,83 @@
+﻿@model ImOdNotes.Core.Entities.Tarea
+
+@{
+	ViewData["Title"] = "Edit";
+}
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideTareas");
+	}
+}
+
+<div id="pagina">
+	<div id="principal">
+		<h4>Tarea</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-12">
+				<form asp-action="Edit">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" asp-for="Id" />
+					<div class="form-group">
+						<label asp-for="Titulo" class="control-label"></label>
+						<input asp-for="Titulo" class="form-control" />
+						<span asp-validation-for="Titulo" class="text-danger"></span>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label asp-for="FechaVencimiento" class="control-label"></label>
+								<input asp-for="FechaVencimiento" type="date" class="form-control" />
+								<span asp-validation-for="FechaVencimiento" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label asp-for="Prioridad" class="control-label"></label>
+								<input asp-for="Prioridad" class="form-control" />
+								<span asp-validation-for="Prioridad" class="text-danger"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label asp-for="CategoriaId" class="control-label"></label>
+								<select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+								<span asp-validation-for="CategoriaId" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" asp-for="Completado" /> @Html.DisplayNameFor(model => model.Completado)
+								</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							Favorito
+						</div>
+					</div>
+					<div class="form-group">
+						<label asp-for="Descripcion" class="control-label"></label>
+						<textarea asp-for="Descripcion" class="form-control"></textarea>
+						<span asp-validation-for="Descripcion" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<div id="finalFormulario">
+							<a asp-action="Index">Regresar a la Lista</a>
+							<input type="submit" value="Guardar" class="btn btn-primary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		@section Scripts {
+			@{
+				await Html.RenderPartialAsync("_ValidationScriptsPartial");
+			}
+		}
+
+	</div>
+</div>

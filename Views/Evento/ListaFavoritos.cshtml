@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ImOdNotes.Core.Entities.Evento>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideEventos");
+	}
+}
+<div id="pagina">
+	<div id="principal">
+		<h3>Eventos favoritos</h3>
+		<div id="tablaIndex">
+    
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.Titulo)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.FechaInicio)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Descripcion)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Ubicacion)
+						</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Titulo)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.FechaInicio)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Descripcion)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Ubicacion)
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+			<!-- ANTERIOR -->
+			<ul class="pagination mb-0">
+				<li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
+					<a class="page-link"
+						   asp-action="ListaFavoritos"
+						   asp-route-page="@(ViewBag.PaginaActual - 1)">
+						Anterior
+					</a>
+				</li>
+
+				@for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+				{
+					<li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+						<a class="page-link"
+							   asp-action="ListaFavoritos"
+							   asp-route-page="@i">
+							@i
+						</a>
+					</li>
+				}
+
+				<li class="page-item @(ViewBag.PaginaActual == ViewBag.TotalPaginas ? "disabled" : "")">
+					<a class="page-link"
+						   asp-action="ListaFavoritos"
+						   asp-route-page="@(ViewBag.PaginaActual + 1)">
+						Siguiente
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
