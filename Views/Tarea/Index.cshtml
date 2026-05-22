@@ -40,47 +40,50 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach (var item in Model)
+					@foreach (var tarea in Model)
 					{
 						<tr>
 							<td>
-								@Html.DisplayFor(modelItem => item.Completado)
+								
+								<input type="checkbox" class="form-check-input tarea-check"
+									   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
+
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Titulo)
+								@Html.DisplayFor(modelItem => tarea.Titulo)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Descripcion)
+								@Html.DisplayFor(modelItem => tarea.Descripcion)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Prioridad)
+								@Html.DisplayFor(modelItem => tarea.Prioridad)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.FechaVencimiento)
+								@Html.DisplayFor(modelItem => tarea.FechaVencimiento)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.CategoriaTarea.Nombre)
+								@Html.DisplayFor(modelItem => tarea.CategoriaTarea.Nombre)
 							</td>
 							<td>
 								<a asp-action="Details"
-									asp-route-id="@item.Id"
+									   asp-route-id="@tarea.Id"
 									type="button"
 									class="btn btn-outline-primary btn-sm">
 									<i class="bi-journal-text"></i>
 								</a>
 								<a asp-action="Edit" 
-									asp-route-id="@item.Id"
+									   asp-route-id="@tarea.Id"
 									   type="button"
 									   class="btn btn-outline-primary btn-sm">
 									<i class="bi-pencil"></i>
 								</a>
 								<a asp-action="Favorito"
-									   asp-route-id="@item.Id"
+									   asp-route-id="@tarea.Id"
 									   asp-route-page="@ViewBag.PaginaActual"
 									   type="button" class="btn btn-outline-primary btn-sm">
-									<i class="bi @((item.Favorito) ? "bi bi-star-fill text-primary" : "bi-star text-muted")"></i>
+									<i class="bi @((tarea.Favorito) ? "bi bi-star-fill text-primary" : "bi-star text-muted")"></i>
 								</a>
-								<a asp-action="Delete" asp-route-id="@item.Id"
+								<a asp-action="Delete" asp-route-id="@tarea.Id"
 									   type="button"
 									   class="btn btn-outline-secondary btn-sm">
 									<i class="bi-trash text-danger"></i>

@@ -9,3 +9,4 @@ const colores = {
 		border: "#B58DB6"
 	}
 };
+

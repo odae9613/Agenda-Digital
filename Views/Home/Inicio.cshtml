@@ -1,79 +1,230 @@
-﻿@section MenuPagina {
-    @{
-        await Html.RenderPartialAsync("_MenuAsideHome");
-    }
+﻿@using ImOdNotes.Core.Entities
+@section MenuPagina {
+	@{
+		await Html.RenderPartialAsync("_MenuAsideHome");
+	}
+}
+@{
+	List<Evento> eventosMes = ViewBag.eventoMes;
+	List<Evento> eventosSemana = ViewBag.eventoSemana;
+	List<Evento> listaEventos = ViewBag.listaEventos;
+	List<Tarea> tareas = ViewBag.tareaMes;
+	List<Tarea> tareasSemana = ViewBag.tareasSemana;
+	List<Tarea> listaTareas = ViewBag.listaTareas;
 }
 <div id="paginaInicio">
-    <section>
+	@Html.AntiForgeryToken()
+	<section>
 		<h2>Hola, @ViewBag.usuario. Bienvenido a iModNotes</h2>
-        <div class="bienvenida">
-            <a>
+		<div class="bienvenida">
+			<a>
                 
-            </a>
-            <p>@ViewBag.hoy.ToString("dddd, dd 'de' MMMM ' ' yyyy")</p>
-            <a>Pendientes hoy</a>
-        </div>
-        <div class="frameCard">
-            <a class="card" asp-area="" asp-controller="Nota" asp-action="Index">
-                <span class="tituloCard">
-                    <h5>Notas</h5>
-                    <i class="bi bi-journal-richtext"></i>
-                </span>
-                <hr />
-                <span>@ViewBag.totalNotas</span>
-            </a>
-            <a class="card" asp-area="" asp-controller="Gasto" asp-action="Index">
-                <span class="tituloCard">
-                    <h5>Gastos</h5>
-                    <i class="bi bi-bank"></i>
-                </span>
-                <hr />
-                <span>@ViewBag.totalGastos</span>
-            </a>
-            <a class="card" asp-area="" asp-controller="Evento" asp-action="Index">
-                <span class="tituloCard">
-                    <h5>Eventos</h5>
-                    <i class="bi bi-calendar"></i>
-                </span>
-                <hr />
-                <span>@ViewBag.totalEventos</span>
-            </a>
-            <a class="card" asp-area="" asp-controller="Tarea" asp-action="Index">
-                <span class="tituloCard">
-                    <h5>Tareas</h5>
-                    <i class="bi bi-list-check"></i>
-                </span>
-                <hr />
-                <span>@ViewBag.totalTareas</span>
-            </a>
-        </div>
-        <hr />
-        <div class="bienvenida">
-            <a>
-                Tareas del mes:
-            </a>
-            <p>@ViewBag.hoy.ToString("MMMM ':'")</p>
-            <a>Pendientes hoy</a>
-        </div>
-    </section>
-    <aside>
-        <div class="notificaciones">
-            <div class="notificacion">
-                <h6>Eventos</h6>
-            </div>
-            <div class="notificacion">
-                <h6>Notas</h6>
-            </div>
-            <div class="notificacion">
-                <h6>Gastos</h6>
-            </div>
-        </div>
-        <div class="mes">
-            <h6>Calendario</h6>
-            @*  I   N   I   C   I   O *@
+			</a>
+			<p>@ViewBag.hoy.ToString("dddd, dd 'de' MMMM ' ' yyyy")</p>
+			<a>Pendientes hoy</a>
+			@if (ViewBag.eventosHoy == 1)
+			{
+				<a>@ViewBag.eventosHoy evento, </a>
+			}
+			@if (@ViewBag.eventosHoy > 1)
+			{
+				<a>@ViewBag.eventosHoy eventos, </a>
+			}
+			@if (@ViewBag.tareasHoy == 1)
+			{
+				<a>@ViewBag.tareasHoy tarea</a>
+			}
+			@if (@ViewBag.tareasHoy > 1)
+			{
+				<a>@ViewBag.tareasHoy tareas</a>
+			}
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						@if (listaEventos != null && listaEventos.Any())
+						{
+							<div>
+								<h6>Eventos</h6>
+								@foreach (var evento in listaEventos)
+								{
+									<i>@evento.Titulo</i>
+								}
+							</div>
+						}
+					</div>
+					<div class="col-12 col-md-6">
+						<div>
+							@if (listaTareas != null && listaTareas.Any())
+							{
+								<div>
+									<h6>Tareas</h6>
+									@foreach (var tarea in listaTareas)
+									{
+										<i>@tarea.Titulo</i>
+									}
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="frameCard">
+			<a class="card" asp-area="" asp-controller="Nota" asp-action="Index">
+				<span class="tituloCard">
+					<h5>Notas</h5>
+					<i class="bi bi-journal-richtext"></i>
+				</span>
+				<hr />
+				<span>@ViewBag.totalNotas</span>
+			</a>
+			<a class="card" asp-area="" asp-controller="Gasto" asp-action="Index">
+				<span class="tituloCard">
+					<h5>Gastos</h5>
+					<i class="bi bi-bank"></i>
+				</span>
+				<hr />
+				<span>@ViewBag.totalGastos</span>
+			</a>
+			<a class="card" asp-area="" asp-controller="Evento" asp-action="Index">
+				<span class="tituloCard">
+					<h5>Eventos</h5>
+					<i class="bi bi-calendar"></i>
+				</span>
+				<hr />
+				<span>@ViewBag.totalEventos</span>
+			</a>
+			<a class="card" asp-area="" asp-controller="Tarea" asp-action="Index">
+				<span class="tituloCard">
+					<h5>Tareas</h5>
+					<i class="bi bi-list-check"></i>
+				</span>
+				<hr />
+				<span>@ViewBag.totalTareas</span>
+			</a>
+		</div>
+		<hr />
+		<div class="bienvenida">
+			<a>
+				Pendientes de @ViewBag.hoy.ToString("MMMM ':'")
+			</a>
+			<p>Eventos</p>
+			@if (eventosMes != null && eventosMes.Any())
+			{
+				<table>
+					<thead>
+						<tr>
+							<th>Titulo</th>
+							<th>Fecha</th>
+							<th>Ubicación</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var evento in eventosMes)
+						{
+							<tr>
+								<td>@evento.Titulo</td>
+								<td>@evento.FechaInicio</td>
+								<td>@evento.Ubicacion</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			<p>Tareas</p>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Título</th>
+						<th>Vence</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var tarea in tareas)
+					{
+						<tr>
+							<td>
+								<input type="checkbox" class="form-check-input tarea-check"
+									   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
+							</td>
+							<td>@tarea.Titulo</td>
+							<td>@tarea.FechaVencimiento</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<aside>
+		<h2>Pendientes próximos</h2>
+		<div class="notificaciones">
+			@if (eventosSemana != null && eventosSemana.Any())
+			{
+				<div class="notificacion">
+					<h6>Eventos</h6>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var evento in eventosSemana)
+							{
+								<tr>
+									<td>@evento.Titulo</td>
+									<td>@evento.FechaInicio</td>
+								</tr>
+							}
+						</tbody>
+                        
+					</table>
+				</div>
+			}
+			@if (@ViewBag.totalGastos > 0)
+			{
+				<div class="notificacion">
+					<h6>Gastos</h6>
+				</div>
+			}
+			@if (tareasSemana != null && tareasSemana.Any())
+			{
+				<div class="notificacion">
+					<h6>Tareas</h6>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Título</th>
+								<th>Vence</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var tarea in tareasSemana)
+							{
+								<tr>
+									<td>
+										<input type="checkbox" class="form-check-input tarea-check"
+											   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
+									</td>
+									<td>@tarea.Titulo</td>
+									<td>@tarea.FechaVencimiento</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+            
+		</div>
+		<div class="mes">
+			<h6>Calendario</h6>
+			@*  I   N   I   C   I   O *@
 
 
-            @*  F   I   N    *@
-        </div>
-    </aside>
+			@*  F   I   N    *@
+		</div>
+	</aside>
 </div>
