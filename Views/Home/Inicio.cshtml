@@ -124,7 +124,7 @@
 						{
 							<tr>
 								<td>@evento.Titulo</td>
-								<td>@evento.FechaInicio</td>
+								<td>@evento.FechaInicio.ToString("dd/MM/yy")</td>
 								<td>@evento.Ubicacion</td>
 							</tr>
 						}
@@ -149,7 +149,7 @@
 									   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
 							</td>
 							<td>@tarea.Titulo</td>
-							<td>@tarea.FechaVencimiento</td>
+							<td>@tarea.FechaVencimiento?.ToString("dd/MM/yy")</td>
 						</tr>
 					}
 				</tbody>
@@ -175,7 +175,7 @@
 							{
 								<tr>
 									<td>@evento.Titulo</td>
-									<td>@evento.FechaInicio</td>
+									<td>@evento.FechaInicio.ToString("ddd dd/MM/yy")</td>
 								</tr>
 							}
 						</tbody>
@@ -210,7 +210,7 @@
 											   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
 									</td>
 									<td>@tarea.Titulo</td>
-									<td>@tarea.FechaVencimiento</td>
+									<td>@tarea.FechaVencimiento?.ToString("ddd dd/MM/yy")</td>
 								</tr>
 							}
 						</tbody>

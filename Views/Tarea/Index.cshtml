@@ -59,7 +59,7 @@
 								@Html.DisplayFor(modelItem => tarea.Prioridad)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => tarea.FechaVencimiento)
+								@tarea.FechaVencimiento?.ToString("dd/MM/yyyy")
 							</td>
 							<td>
 								@Html.DisplayFor(modelItem => tarea.CategoriaTarea.Nombre)

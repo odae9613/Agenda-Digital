@@ -42,19 +42,19 @@
 				Vence
 			</dt>
 			<dd class="col-sm-9">
-				@Html.DisplayFor(model => model.FechaVencimiento)
+				@Model.FechaVencimiento?.ToString("dd/MM/yyyy")
 			</dd>
 			<dt class="col-sm-3">
 				Fecha Creacion
 			</dt>
 			<dd class="col-sm-9">
-				@Html.DisplayFor(model => model.FechaCreacion)
+				@Model.FechaCreacion.ToString("dd/MM/yyyy")
 			</dd>
 			<dt class="col-sm-3">
 				Ultima actualización
 			</dt>
 			<dd class="col-sm-9">
-				@Html.DisplayFor(model => model.FechaActualizacion)
+				@Model.FechaActualizacion.ToString("dd/MM/yyyy")
 			</dd>
 			<dt class="col-sm-3">
 				Categoría
