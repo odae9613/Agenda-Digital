@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ImOdNotes.Core.Entities.Usuario>
+﻿@using ImOdNotes.Models.ViewModels;
+@model PaginadoViewModel<ImOdNotes.Core.Entities.Usuario>
+@* @model IEnumerable<ImOdNotes.Core.Entities.Usuario> *@
 
 @{
     ViewData["Title"] = "Index";
@@ -21,10 +23,10 @@
                             Nombre
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.NombreUsuario)
+                            @Html.DisplayNameFor(model => model.Lista.First().NombreUsuario)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.FechaNacimiento)
+                            @Html.DisplayNameFor(model => model.Lista.First().FechaNacimiento)
                         </th>
                         @* <th>
                             @Html.DisplayNameFor(model => model.LugarNacimiento)
@@ -33,13 +35,13 @@
                             @Html.DisplayNameFor(model => model.Nacionalidad)
                         </th> *@
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            @Html.DisplayNameFor(model => model.Lista.First().Email)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Genero)
+                            @Html.DisplayNameFor(model => model.Lista.First().Genero)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Rol)
+                            @Html.DisplayNameFor(model => model.Lista.First().Rol)
                         </th>
                         @* <th>
                             @Html.DisplayNameFor(model => model.Password)
@@ -50,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Lista)
                     {
                         <tr>
                             <td>
@@ -60,7 +62,7 @@
                                 @Html.DisplayFor(modelItem => item.NombreUsuario)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                                @item.FechaNacimiento.ToString("dd/MM/yyyy")
                             </td>
                             @* <td>
                                 @Html.DisplayFor(modelItem => item.LugarNacimiento)
@@ -105,6 +107,9 @@
                 </tbody>
             </table>
             @*  P   A   G  I  N  A  C  I  O  N  *@
+            <div class="paginacion">
+                <partial name="_Paginacion" model="Model" />
+            </div>
         </div>
 
 

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ImOdNotes.Core.Entities.Gasto>
+﻿@using ImOdNotes.Models.ViewModels;
+@model PaginadoViewModel<ImOdNotes.Core.Entities.Gasto>
 
 @section MenuPagina {
     @{
@@ -12,21 +13,21 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Titulo)
+                        @Html.DisplayNameFor(model => model.Lista.First().Titulo)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Monto)
+                        @Html.DisplayNameFor(model => model.Lista.First().Monto)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.FechaCreacion)
+                        @Html.DisplayNameFor(model => model.Lista.First().FechaCreacion)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.CategoriaGasto)
+                        @Html.DisplayNameFor(model => model.Lista.First().CategoriaGasto)
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Lista)
                 {
                     <tr>
                         <td>
@@ -69,34 +70,10 @@
                 }
             </tbody>
         </table>
+        <hr />
         @* P    A   G   I   N   A   C   I   O   N *@
-        <ul class="pagination mb-0">
-            <li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
-                <a class="page-link"
-                       asp-action="Index"
-                       asp-route-page="@(ViewBag.PaginaActual - 1)">
-                    Anterior
-                </a>
-            </li>
-
-            @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
-            {
-                <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
-                    <a class="page-link"
-                           asp-action="Index"
-                           asp-route-page="@i">
-                        @i
-                    </a>
-                </li>
-            }
-
-            <li class="page-item @(ViewBag.PaginaActualFav == ViewBag.TotalPaginas ? "disabled" : "")">
-                <a class="page-link"
-                       asp-action="Index"
-                       asp-route-page="@(ViewBag.PaginaActual + 1)">
-                    Siguiente
-                </a>
-            </li>
-        </ul>
+       <div>
+           <partial name="_Paginacion" model="Model" />
+       </div>
     </div>
 </div>

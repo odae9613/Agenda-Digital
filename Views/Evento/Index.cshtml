@@ -1,4 +1,7 @@
-﻿@model IEnumerable<ImOdNotes.Core.Entities.Evento>
+﻿@using ImOdNotes.Models.ViewModels;
+@model PaginadoViewModel<ImOdNotes.Core.Entities.Evento>
+
+@* @model IEnumerable<ImOdNotes.Core.Entities.Evento> *@
 
 @{
 	ViewData["Title"] = "Index";
@@ -17,22 +20,22 @@
 				<thead>
 					<tr>
 						<th>
-							@Html.DisplayNameFor(model => model.Titulo)
+							@Html.DisplayNameFor(model => model.Lista.First().Titulo)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Descripcion)
+							@Html.DisplayNameFor(model => model.Lista.First().Descripcion)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.FechaInicio)
+							@Html.DisplayNameFor(model => model.Lista.First().FechaInicio)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.CategoriaEvento)
+							@Html.DisplayNameFor(model => model.Lista.First().CategoriaEvento)
 						</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach (var item in Model)
+					@foreach (var item in Model.Lista)
 					{
 						<tr>
 							<td>
@@ -78,8 +81,12 @@
 					}
 				</tbody>
 			</table>
+			<hr />
 			@* P    A   G   I   N   A   C   I   O   N *@
-			<ul class="pagination mb-0">
+			<div class="paginacion">
+				<partial name="_Paginacion" model="Model" />
+			</div>
+			@* <ul class="pagination mb-0">
 				<li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
 					<a class="page-link"
 						   asp-action="Index"
@@ -106,7 +113,7 @@
 						Siguiente
 					</a>
 				</li>
-			</ul>
+			</ul> *@
 		</div>
 	</div>
 

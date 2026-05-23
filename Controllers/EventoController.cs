@@ -9,21 +9,24 @@ using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using ImOdNotes.Services;
 
 namespace ImOdNotes.Controllers
 {
     [Authorize]
     public class EventoController : Controller
     {
+        private readonly PaginacionService _paginacionService;
         private readonly MyDbContext _context;
 
         public EventoController(MyDbContext context)
         {
             _context = context;
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Evento
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
 
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -33,12 +36,19 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
+            //  PAGINACIÓN MANUAL
+            var eventosPaginacion = _context.Eventos
+                .Include(e => e.CategoriaEvento)
+                .Include(e => e.Usuario)
+                .Where(e => e.UsuarioId == usuarioId);
+            var paginado = _paginacionService.Paginacion<Evento>(eventosPaginacion, page);
+
             var eventos = _context.Eventos
                 .Include(e => e.CategoriaEvento)
                 .Include(e => e.Usuario)
                 .Where(e => e.UsuarioId == usuarioId)
                 .ToListAsync();
-            return View(await eventos);
+            return View(paginado);
         }
 
         // GET: Evento/Details/5

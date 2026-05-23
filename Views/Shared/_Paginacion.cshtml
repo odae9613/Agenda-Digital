@@ -1,0 +1,34 @@
+﻿@model ImOdNotes.Models.ViewModels.IPaginadoViewModel
+
+
+@* Paginado *@
+<div class="d-flex justify-content-between align-items-center">
+	<ul class="pagination mb-0">
+		<li class="page-item @(Model.PaginaActual == 1 ? "disabled" : "")">
+			<a class="page-link"
+				   asp-action="Index"
+				   asp-route-page="@(Model.PaginaActual - 1)">
+				Anterior
+			</a>
+		</li>
+
+		@for (int i = 1; i <= Model.TotalPaginas; i++)
+		{
+			<li class="page-item @(i == Model.PaginaActual ? "active" : "")">
+				<a class="page-link"
+					   asp-action="Index"
+					   asp-route-page="@i">
+					@i
+				</a>
+			</li>
+		}
+		<li class="page-item @(Model.PaginaActual == Model.TotalPaginas ? "disabled" : "")">
+			<a class="page-link"
+				   asp-action="Index"
+				   asp-route-page="@(Model.PaginaActual + 1)">
+				Siguiente
+			</a>
+		</li>
+	</ul>
+</div>
+@* Paginado *@
