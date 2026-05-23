@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
+using ImOdNotes.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +16,15 @@ namespace ImOdNotes.Controllers
     public class GastoController : Controller
     {
         private readonly MyDbContext _context;
-
+        private readonly PaginacionService _paginacionService;
         public GastoController(MyDbContext context)
         {
             _context = context;
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Gasto
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -30,12 +32,22 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
+
+            //  PAGINACIÓN MANUAL
+            var gastosQuery = _context.Gastos
+                .Include(g => g.CategoriaGasto)
+                .Include(g => g.Usuario)
+                .Where(g => g.UsuarioId == usuarioId);
+            var paginado = _paginacionService.Paginacion<Gasto>(gastosQuery, page);
+
+            
+
             var gasto = _context.Gastos
                 .Include(g => g.CategoriaGasto)
                 .Include(g => g.Usuario)
                 .Where(g => g.UsuarioId == usuarioId)
                 .ToListAsync();
-            return View(await gasto);
+            return View(paginado);
         }
 
         // GET: Gasto/Details/5

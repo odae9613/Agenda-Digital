@@ -6,6 +6,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
+using ImOdNotes.Models.ViewModels;
+using ImOdNotes.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +16,13 @@ namespace ImOdNotes.Controllers
 {
     public class NotaController : Controller
     {
+        private readonly PaginacionService _paginacionService;
         private readonly MyDbContext _context;
 
         public NotaController(MyDbContext context)
         {
             _context = context;
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Notas
@@ -32,30 +36,23 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-            //
+            //  PAGINACIÓN MANUAL
+            var notasQuery = _context.Notas
+                .Include(n => n.CategoriaNota)
+                .Include(n => n.Usuario)
+                .Where(e => e.UsuarioId == usuarioId);
+            var paginado = _paginacionService.Paginacion<Nota>(notasQuery, page);
+
             int totalNotasFavoritos = await _context.Notas
                                         .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo las notas favoritos del usuario
                                         .CountAsync();
-            int pageSize = 5;
-            int totalPaginas = (int)Math.Ceiling((double)totalNotasFavoritos / pageSize);
-            ViewBag.TotalRegistros = totalNotasFavoritos;
-            ViewBag.TotalPaginas = totalPaginas;
-            ViewBag.PaginaActual = page;
-
-            List<Nota> data = await _context.Notas
-                                .Where(e => e.Favorito && e.UsuarioId == usuarioId)
-                                .OrderBy(e => e.Id)
-                                .Skip((page - 1) * pageSize)
-                                .Take(pageSize)
-                                .ToListAsync();
-            //
 
             var nota = _context.Notas
                 .Include(n => n.CategoriaNota)
                 .Include(n => n.Usuario)
                 .Where(e => e.UsuarioId == usuarioId)
                 .ToListAsync();
-            return View(await nota);
+            return View(paginado);
         }
 
         // GET: Notas/Details/5

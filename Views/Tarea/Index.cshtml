@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ImOdNotes.Core.Entities.Tarea>
+﻿@using ImOdNotes.Models.ViewModels
+@model PaginadoViewModel<ImOdNotes.Core.Entities.Tarea>
+@* @model IEnumerable<ImOdNotes.Core.Entities.Tarea> *@
 
 @{
 	ViewData["Title"] = "Index";
@@ -22,13 +24,13 @@
 						</th> *@
 						<th></th>
 						<th>
-							@Html.DisplayNameFor(model => model.Titulo)
+							@Html.DisplayNameFor(model => model.Lista.First().Titulo)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Descripcion)
+							@Html.DisplayNameFor(model => model.Lista.First().Descripcion)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Prioridad)
+							@Html.DisplayNameFor(model => model.Lista.First().Prioridad)
 						</th>
 						<th>
 							Vencimiento
@@ -40,7 +42,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach (var tarea in Model)
+					@foreach (var tarea in Model.Lista)
 					{
 						<tr>
 							<td>
@@ -93,6 +95,10 @@
 					}
 				</tbody>
 			</table>
+		</div>
+		<hr />
+		<div class="paginacion">
+			<partial name="_Paginacion" model="Model" />
 		</div>
 	</div>
 </div>

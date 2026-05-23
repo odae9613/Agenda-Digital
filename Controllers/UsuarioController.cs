@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
 using ImOdNotes.Models.ViewModels;
+using ImOdNotes.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +19,7 @@ namespace ImOdNotes.Controllers
 {
     public class UsuarioController : Controller
     {
+        private readonly PaginacionService _paginacionService;
         private readonly MyDbContext _context;
         private readonly IPasswordHasher<Usuario> _passwordHasher;
 
@@ -25,14 +27,20 @@ namespace ImOdNotes.Controllers
         {
             _context = context;
             _passwordHasher = passwordHasher;
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Usuario
         [Authorize(Roles = "Administrador")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var usuario = _context.Usuarios.Include(u => u.Rol);
-            return View(await usuario.ToListAsync());
+
+            //  PAGINACIÓN MANUAL
+            var usuariosQuery = _context.Usuarios;
+            var paginado = _paginacionService.Paginacion<Usuario>(usuariosQuery, page);
+
+            return View(paginado);
         }
 
         // GET: Usuario/Details/5

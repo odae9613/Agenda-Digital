@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
+using ImOdNotes.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +16,15 @@ namespace ImOdNotes.Controllers
     public class TareaController : Controller
     {
         private readonly MyDbContext _context;
-
+        private readonly PaginacionService _paginationService;
         public TareaController(MyDbContext context)
         {
             _context = context;
+            _paginationService = new PaginacionService();
         }
 
         // GET: Tarea
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
 
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -32,12 +34,19 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
+            //  PAGINACIÓN MANUAL   
+            var tareasQuery = _context.Tareas
+                .Include(t => t.CategoriaTarea)
+                .Include(t => t.Usuario)
+                .Where(t => t.UsuarioId == usuarioId);
+            var paginado = _paginationService.Paginacion<Tarea>(tareasQuery, page);
+
             var tarea = _context.Tareas
                 .Include(t => t.CategoriaTarea)
                 .Include(t => t.Usuario)
                 .Where(t => t.UsuarioId == usuarioId)
                 .ToListAsync();
-            return View(await tarea);
+            return View(paginado);
         }
 
         // GET: Tarea/Details/5
