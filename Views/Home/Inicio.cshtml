@@ -7,6 +7,8 @@
 @{
 	List<Evento> eventosMes = ViewBag.eventoMes;
 	List<Evento> eventosSemana = ViewBag.eventoSemana;
+	List<Tarea> tareaMes = ViewBag.tareaMes;
+	List<Tarea> tareaSemana = ViewBag.tareaSemana;
 	List<Evento> listaEventos = ViewBag.listaEventos;
 	List<Tarea> tareas = ViewBag.tareaMes;
 	List<Tarea> tareasSemana = ViewBag.tareasSemana;
@@ -15,13 +17,12 @@
 <div id="paginaInicio">
 	@Html.AntiForgeryToken()
 	<section>
-		<h2>Hola, @ViewBag.usuario. Bienvenido a iModNotes</h2>
+		<div>Bienvenido, @ViewBag.usuario. </div>
 		<div class="bienvenida">
 			<a>
-                
+				Pendientes de hoy
 			</a>
 			<p>@ViewBag.hoy.ToString("dddd, dd 'de' MMMM ' ' yyyy")</p>
-			<a>Pendientes hoy</a>
 			@if (ViewBag.eventosHoy == 1)
 			{
 				<a>@ViewBag.eventosHoy evento, </a>
@@ -105,94 +106,40 @@
 		</div>
 		<hr />
 		<div class="bienvenida">
-			<a>
-				Pendientes de @ViewBag.hoy.ToString("MMMM ':'")
-			</a>
-			<p>Eventos</p>
-			@if (eventosMes != null && eventosMes.Any())
+			@if ((eventosSemana != null && eventosSemana.Any()) ||
+			(tareasSemana != null && tareasSemana.Any()))
 			{
-				<table>
-					<thead>
-						<tr>
-							<th>Titulo</th>
-							<th>Fecha</th>
-							<th>Ubicación</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach (var evento in eventosMes)
-						{
-							<tr>
-								<td>@evento.Titulo</td>
-								<td>@evento.FechaInicio.ToString("dd/MM/yy")</td>
-								<td>@evento.Ubicacion</td>
-							</tr>
-						}
-					</tbody>
-				</table>
-			}
-			<p>Tareas</p>
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>Título</th>
-						<th>Vence</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach (var tarea in tareas)
-					{
-						<tr>
-							<td>
-								<input type="checkbox" class="form-check-input tarea-check"
-									   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
-							</td>
-							<td>@tarea.Titulo</td>
-							<td>@tarea.FechaVencimiento?.ToString("dd/MM/yy")</td>
-						</tr>
-					}
-				</tbody>
-			</table>
-		</div>
-	</section>
-	<aside>
-		<h2>Pendientes próximos</h2>
-		<div class="notificaciones">
-			@if (eventosSemana != null && eventosSemana.Any())
-			{
-				<div class="notificacion">
-					<h6>Eventos</h6>
+				<a>
+					Pendientes de @ViewBag.hoy.ToString("MMMM ':'")
+				</a>
+				<hr />
+				@if (eventosMes != null && eventosMes.Any())
+				{
+					<p>Eventos</p>
 					<table>
 						<thead>
 							<tr>
-								<th></th>
-								<th></th>
+								<th>Titulo</th>
+								<th>Fecha</th>
+								<th>Ubicación</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (var evento in eventosSemana)
+							@foreach (var evento in eventosMes)
 							{
 								<tr>
 									<td>@evento.Titulo</td>
-									<td>@evento.FechaInicio.ToString("ddd dd/MM/yy")</td>
+									<td>@evento.FechaInicio.ToString("dd/MM/yy")</td>
+									<td>@evento.Ubicacion</td>
 								</tr>
 							}
 						</tbody>
-                        
 					</table>
-				</div>
-			}
-			@if (@ViewBag.totalGastos > 0)
-			{
-				<div class="notificacion">
-					<h6>Gastos</h6>
-				</div>
-			}
-			@if (tareasSemana != null && tareasSemana.Any())
-			{
-				<div class="notificacion">
-					<h6>Tareas</h6>
+				}
+				@if (tareaMes != null && tareaMes.Any())
+				{
+					<hr/>
+					<p>Tareas</p>
 					<table>
 						<thead>
 							<tr>
@@ -202,7 +149,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (var tarea in tareasSemana)
+							@foreach (var tarea in tareas)
 							{
 								<tr>
 									<td>
@@ -210,14 +157,87 @@
 											   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
 									</td>
 									<td>@tarea.Titulo</td>
-									<td>@tarea.FechaVencimiento?.ToString("ddd dd/MM/yy")</td>
+									<td>@tarea.FechaVencimiento?.ToString("dd/MM/yy")</td>
 								</tr>
 							}
 						</tbody>
 					</table>
+				}
+			}
+			else
+			{
+				<h3>Sin pendientes en @ViewBag.hoy.ToString("MMMM")</h3>
+			}
+		</div>
+	</section>
+
+	@*	S	E	M	A	N	A	 *@
+	<aside>
+		<div class="notificaciones">
+			@if ((eventosSemana != null && eventosSemana.Any()) ||
+				   (tareasSemana != null && tareasSemana.Any()))
+			{
+
+				<h5 class="mb-3">Notificaciones pendientes</h5>
+				@if (eventosSemana != null && eventosSemana.Any())
+				{
+					<div class="notificacion">
+						<h6>Eventos</h6>
+						<table class="tabla-mini">
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var evento in eventosSemana)
+								{
+									<tr>
+										<td>@evento.Titulo</td>
+										<td>@evento.FechaInicio.ToString("ddd dd/MM/yy")</td>
+									</tr>
+								}
+							</tbody>
+                        
+						</table>
+					</div>
+				}
+				@if (tareasSemana != null && tareasSemana.Any())
+				{
+					<div class="notificacion">
+						<h6>Tareas</h6>
+						<table class="tabla-mini">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Título</th>
+									<th>Vence</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var tarea in tareasSemana)
+								{
+									<tr>
+										<td>
+											<input type="checkbox" class="form-check-input tarea-check"
+												   data-id="@tarea.Id" @(tarea.Completado ? "checked" : "") />
+										</td>
+										<td>@tarea.Titulo</td>
+										<td>@tarea.FechaVencimiento?.ToString("ddd dd/MM/yy")</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				}
+			}
+			else
+			{
+				<div class="notificacion">
+					<h6>Sin notificaciones</h6>
 				</div>
 			}
-            
 		</div>
 		<div class="mes">
 			<h6>Calendario</h6>

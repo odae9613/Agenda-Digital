@@ -37,6 +37,10 @@ h3 {
     font-size: 1.5em;
 }
 
+.cabecera{
+    width: 100%;
+}
+
 .notificaciones {
     display: grid;
     flex: 1;
