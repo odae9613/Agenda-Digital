@@ -12,6 +12,35 @@
 <div id="pagina">
     <h3>Editar nota</h3>
     <hr />
+    
+    @* <a asp-action="Favorito"
+           asp-route-id="@Model.Id"
+           asp-route-page="@ViewBag.PaginaActual"
+           type="button" class="btn btn-outline-primary btn-sm"
+           id="btnFavorito"
+    >
+        
+           <i id="iconoFavorito"
+               class="bi @((Model.Favorito) 
+                ? "bi-star-fill" 
+                : "bi-star")"></i>
+    </a> *@
+    <div>
+        <div>
+            <label>Favorito</label>
+            <button type="button"
+                    id="btnFavorito"
+                    class="btn btn-outline-primary btn-sm mb-3">
+
+                <i id="iconoFavorito"
+                   class="bi @(Model.Favorito ? "bi-star-fill" : "bi-star")"></i>
+            </button>
+        </div>
+        <input type="hidden"
+               id="favoritoInput"
+               value="@Model.Favorito.ToString().ToLower()" />
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <form asp-action="Edit">
