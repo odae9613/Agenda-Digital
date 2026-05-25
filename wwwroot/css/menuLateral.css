@@ -10,6 +10,23 @@
     /*background-color: #F5B2C5;*/
     /*background-color: #08314A;*/
 }
+.liespecial {
+    height: 45px !important;
+    background-color: #8FA65A;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: none !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
     .mimenu li {
         border-bottom: solid 1px #008484;

@@ -1,5 +1,8 @@
 ﻿@*  M   E   N   Ú       L   A   T   E   R   A   L       H   O   M   E   *@
 <ul class="mimenu">
+	<li class="liespecial">
+		Funciones
+	</li>
 	<li class="nav-item">
 		<a asp-area="" asp-controller="Home" asp-action="Inicio">
 			<span>Inicio</span>
@@ -42,13 +45,10 @@
 			<i class="bi bi-book"></i>
 		</a>
 	</li>
-	<li>
-		<hr />
-	</li>
 	@if(User.IsInRole("Administrador"))
 	{
-		<li>
-			<hr/>
+		<li class="liespecial">
+			Administrador
 		</li>
 		<li class="nav-item">
 			<a asp-area="" asp-controller="Usuario" asp-action="Index">
