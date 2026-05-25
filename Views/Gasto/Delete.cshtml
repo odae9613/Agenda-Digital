@@ -5,12 +5,23 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideGastos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Eliminar Gastos
+				</h2>
+			</div>
+			<partial name="_MenuAsideGastos" />
+
+		</div>
 		<h3>Eliminar gasto: @Html.DisplayFor(model => model.Titulo)</h3>
 		<h6>¿Estás seguro de eliminar este gasto?</h6>
 		<div>

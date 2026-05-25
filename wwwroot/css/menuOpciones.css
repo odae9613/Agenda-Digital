@@ -1,0 +1,71 @@
+﻿/*    EVENTO    */
+.opcionesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #f8fffa, #eefbf3);
+    border-radius: 18px;
+    border: 1px solid #d8f3dc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.tituloOpciones h2 {
+    margin: 0;
+    color: #2d6a4f;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accionesOpciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btnOpciones {
+    background-color: white;
+    border: 1px solid #95d5b2;
+    color: #2d6a4f;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    transition: all 0.25s ease;
+}
+
+    .btnOpciones:hover {
+        background-color: #95d5b2;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.btnFavoritos {
+    background-color: #ffe066;
+    color: #5c4700;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+    .btnFavoritos:hover {
+        background-color: #ffd43b;
+        transform: translateY(-2px);
+    }
+
+.btnCategoria {
+    background-color: #d0ebff;
+    color: #1864ab;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+    .btnCategoria:hover {
+        background-color: #74c0fc;
+        color: white;
+        transform: translateY(-2px);
+    }

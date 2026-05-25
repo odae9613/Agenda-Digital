@@ -6,11 +6,22 @@
 
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideGastos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 <div id="pagina">
 	<div id="principal">
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Detalles de la categoria gastos
+				</h2>
+			</div>
+			<partial name="_MenuAsideGastos" />
+
+		</div>
 		<h3>Detalles de la categoría de gasto</h3>
 		<hr />
 		<dl class="row">

@@ -1,5 +1,52 @@
 ﻿@*  M   E   N   Ú       L   A   T   E   R   A   L       N   O   T   A   S   *@
-<ul class="mimenu">
+
+
+<div class="accionesOpciones">
+
+	<a class="btn btnOpciones"
+		   asp-controller="Tarea"
+		   asp-action="Index">
+
+		<i i class="bi bi-check2-square"></i>
+		Tareas
+	</a>
+
+	<a class="btn btnOpciones"
+		   asp-controller="Tarea"
+		   asp-action="Create">
+
+		<i class="bi bi-plus-circle"></i>
+		Crea tareas
+	</a>
+
+	<a class="btn btnFavoritos"
+		   asp-controller="Tarea"
+		   asp-action="ListaFavoritos">
+
+		<i class="bi bi-star-fill"></i>
+		Favoritos
+	</a>
+
+	<a class="btn btnOpciones"
+		   asp-controller="CategoriaTarea"
+		   asp-action="Index">
+
+		<i class="bi bi-tags"></i>
+		Categorías
+	</a>
+
+	<a class="btn btnCategoria"
+		   asp-controller="CategoriaTarea"
+		   asp-action="Create">
+
+		<i class="bi bi-plus-circle-dotted"></i>
+		Categoría
+	</a>
+
+</div>
+
+
+@* <ul class="mimenu">
 	<li class="nav-item">
 		<a asp-area="" asp-controller="Home" asp-action="Inicio">
 			<span>Inicio</span>
@@ -36,4 +83,4 @@
 			<i class="bi bi-tags"></i>
 		</a>
 	</li>
-</ul>
+</ul> *@

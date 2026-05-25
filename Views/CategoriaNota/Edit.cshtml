@@ -6,11 +6,22 @@
 
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideNotas");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 <div id="pagina">
     <div id="principal">
+        <div class="opcionesHeader">
+
+            <div class="tituloOpciones">
+                <h2>
+                    <i class="bi bi-stickies"></i>
+                    Editar Notas
+                </h2>
+            </div>
+            <partial name="_MenuAsideNotas" />
+
+        </div>
         <h3>Editar categoria de la nota</h3>
         <hr />
         <div class="row">

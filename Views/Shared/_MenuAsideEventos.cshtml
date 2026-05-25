@@ -1,6 +1,51 @@
 ﻿
-@*  M   E   N   Ú       L   A   T   E   R   A   L       E   V   E   N   T   O   S   *@
-<ul class="mimenu">
+@*  M   E   N   Ú       E   V   E   N   T   O   S   *@
+
+<div class="accionesOpciones">
+
+    <a class="btn btnOpciones"
+           asp-controller="Evento"
+           asp-action="Index">
+
+        <i class="bi bi-calendar3"></i>
+        Eventos
+    </a>
+
+    <a class="btn btnOpciones"
+           asp-controller="Evento"
+           asp-action="Create">
+
+        <i class="bi bi-plus-circle"></i>
+        Evento
+    </a>
+
+    <a class="btn btnFavoritos"
+           asp-controller="Evento"
+           asp-action="ListaFavoritos">
+
+        <i class="bi bi-star-fill"></i>
+        Favoritos
+    </a>
+
+    <a class="btn btnOpciones"
+           asp-controller="CategoriaEvento"
+           asp-action="Index">
+
+        <i class="bi bi-tags"></i>
+        Categorías
+    </a>
+
+    <a class="btn btnCategoria"
+           asp-controller="CategoriaEvento"
+           asp-action="Create">
+
+        <i class="bi bi-plus-circle-dotted"></i>
+        Categoría
+    </a>
+
+</div>
+
+@* <ul class="mimenu">
     <li class="nav-item">
         <a asp-area="" asp-controller="Home" asp-action="Inicio">
             <span>Inicio</span>
@@ -37,4 +82,4 @@
             <i class="bi bi-tags"></i>
         </a>
     </li>
-</ul>
+</ul> *@
