@@ -6,13 +6,25 @@
 
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideTareas");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
-		<h3>Tarea</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-check2-square"></i>
+					Eliminar tareas
+				</h2>
+			</div>
+			<partial name="_MenuAsideTareas" />
+
+		</div>
+		<h3>Eliminar tarea: @Html.DisplayFor(model => model.Titulo)</h3>
+		<h6>¿Estás seguro de eliminar este usuario?</h6>
 		<hr />
 		<dl class="row">
 			<dt class="col-sm-3">

@@ -3,11 +3,21 @@
 
 @section MenuPagina {
     @{
-        await Html.RenderPartialAsync("_MenuAsideGastos");
+        await Html.RenderPartialAsync("_MenuAsideHome");
     }
 }
 <div id="pagina">
-    <h3>Gastos</h3>
+    <div class="opcionesHeader">
+
+        <div class="tituloOpciones">
+            <h2>
+                <i class="bi bi-calendar-event"></i>
+                Gastos
+            </h2>
+        </div>
+        <partial name="_MenuAsideGastos" />
+
+    </div>
     <div id="tablaIndex">
         <table class="table">
             <thead>
@@ -19,10 +29,10 @@
                         @Html.DisplayNameFor(model => model.Lista.First().Monto)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Lista.First().FechaCreacion)
+                        Categoria
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Lista.First().CategoriaGasto)
+                        @Html.DisplayNameFor(model => model.Lista.First().Tipo)
                     </th>
                 </tr>
             </thead>
@@ -37,11 +47,25 @@
                             @Html.DisplayFor(modelItem => item.Monto)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FechaCreacion)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.CategoriaGasto.Nombre)
                         </td>
+                        <td>
+                            <td>
+                                @if (item.Tipo == "Ingreso")
+                                {
+                                    <div class="tipo-spring tipo-ingreso">
+                                        <i class="bi bi-arrow-down-circle"></i>
+                                        <span>Ingreso</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="tipo-spring tipo-gasto">
+                                        <i class="bi bi-arrow-up-circle"></i>
+                                        <span>Gasto</span>
+                                    </div>
+                                }
+                            </td>
                         <td>
                             <a asp-action="Details"
                                    asp-route-id="@item.Id"

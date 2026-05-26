@@ -1,5 +1,58 @@
-﻿@*  M   E   N   Ú       L   A   T   E   R   A   L       G   A   S   T   O   S   *@
-<ul class="mimenu">
+﻿@*  M   E   N   Ú       G   A   S   T   O   S   *@
+
+<div class="accionesOpciones">
+
+	<a class="btn btnOpciones"
+		   asp-controller="Gasto"
+		   asp-action="Index">
+
+		<i i class="bi bi-cash-coin"></i>
+		Gastos
+	</a>
+
+	<a class="btn btnOpciones"
+		   asp-controller="Gasto"
+		   asp-action="Create">
+
+		<i class="bi bi-receipt"></i>
+		transacción
+	</a>
+
+	<a class="btn btnFavoritos"
+		   asp-controller="Gasto"
+		   asp-action="ListaFavoritos">
+
+		<i class="bi bi-star-fill"></i>
+		Favoritos
+	</a>
+
+	<a class="btn btnOpciones"
+		   asp-controller="CategoriaGasto"
+		   asp-action="Index">
+
+		<i class="bi bi-tags"></i>
+		Categorías
+	</a>
+
+	<a class="btn btnCategoria"
+		   asp-controller="CategoriaGasto"
+		   asp-action="Create">
+
+		<i class="bi bi-plus-circle-dotted"></i>
+		Categoría
+	</a>
+
+	<a class="btn btnBalance"
+		   asp-controller="Gasto"
+		   asp-action="Balance">
+
+		<i class="bi bi-graph-up"></i>
+		Balance
+	</a>
+
+</div>
+
+@* <ul class="mimenu">
 	<li class="nav-item">
 		<a asp-area="" asp-controller="Home" asp-action="Inicio">
 			<span>Inicio</span>
@@ -42,4 +95,4 @@
 			<i class="bi bi-graph-up"></i>
 		</a>
 	</li>
-</ul>
+</ul> *@

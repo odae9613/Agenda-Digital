@@ -2,74 +2,95 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 @section MenuPagina {
-    @{
-        await Html.RenderPartialAsync("_MenuAsideGastos");
-    }
+	@{
+		await Html.RenderPartialAsync("_MenuAsideHome");
+	}
 }
-    <div id="pagina">
-        <h3>Gastos favoritos</h3>
-        <div id="tablaIndex">
+<div id="pagina">
+	<div class="opcionesHeader">
+
+		<div class="tituloOpciones">
+			<h2>
+				<i class="bi bi-calendar-event"></i>
+				Gastos favoritos
+			</h2>
+		</div>
+		<partial name="_MenuAsideGastos" />
+
+	</div>
+	<div id="tablaIndex">
     
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Titulo)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.FechaCreacion)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Monto)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Titulo)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FechaCreacion)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Monto)
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            <!-- ANTERIOR -->
-            <ul class="pagination mb-0">
-                <li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
-                    <a class="page-link"
-                           asp-action="ListaFavoritos"
-                           asp-route-page="@(ViewBag.PaginaActual - 1)">
-                        Anterior
-                    </a>
-                </li>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						@Html.DisplayNameFor(model => model.Titulo)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Monto)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Notas)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Tipo)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.CategoriaGasto)
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							@Html.DisplayFor(modelItem => item.Titulo)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Monto)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Notas)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Tipo)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.CategoriaGasto)
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<!-- ANTERIOR -->
+		<ul class="pagination mb-0">
+			<li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
+				<a class="page-link"
+					   asp-action="ListaFavoritos"
+					   asp-route-page="@(ViewBag.PaginaActual - 1)">
+					Anterior
+				</a>
+			</li>
 
-                @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
-                {
-                    <li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
-                        <a class="page-link"
-                               asp-action="ListaFavoritos"
-                               asp-route-page="@i">
-                            @i
-                        </a>
-                    </li>
-                }
+			@for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+			{
+				<li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
+					<a class="page-link"
+						   asp-action="ListaFavoritos"
+						   asp-route-page="@i">
+						@i
+					</a>
+				</li>
+			}
 
-                <li class="page-item @(ViewBag.PaginaActual == ViewBag.TotalPaginas ? "disabled" : "")">
-                    <a class="page-link"
-                           asp-action="ListaFavoritos"
-                           asp-route-page="@(ViewBag.PaginaActual + 1)">
-                        Siguiente
-                    </a>
-                </li>
-            </ul>
-        </div>
+			<li class="page-item @(ViewBag.PaginaActual == ViewBag.TotalPaginas ? "disabled" : "")">
+				<a class="page-link"
+					   asp-action="ListaFavoritos"
+					   asp-route-page="@(ViewBag.PaginaActual + 1)">
+					Siguiente
+				</a>
+			</li>
+		</ul>
+	</div>
 </div>

@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ImOdNotes</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/menuLateral.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    @* <link rel="stylesheet" href="~/css/usuarioLogin.css" asp-append-version="true" /> *@
+	@* <link rel="stylesheet" href="~/css/usuarioLogin.css" asp-append-version="true" /> *@
+        @* A    R   C   H   I   V   O   S       CSS *@
+	<link rel="stylesheet" href="~/css/menuLateral.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/menuOpciones.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/gasto.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/notas.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/usuarioLogin.css" asp-append-version="true" />
@@ -15,6 +17,7 @@
     <link rel="stylesheet" href="~/css/pagina.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ImOdNotes.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Calendario.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/enums.css" asp-append-version="true" />
     @*  I   C   O   N   O    *@
     <link rel="icon" type="image/x-icon" href="~/iMod_Notes.ico" />
     @*  F   U   L   L       C   A   L   E   N   D   A   R *@
@@ -31,17 +34,17 @@
 
             @if (User.Identity!.IsAuthenticated)
             {
-                <div class="logout">
+                <div class="user-info">
 
-					<span>
-						@User.Identity.Name
-                        <i class="bi bi-person-circle"></i>
+                    <i class="bi bi-person-circle user-icon"></i>
+
+                    <span class="user-name">
+                        @User.Identity.Name
                     </span>
 
-                    <form asp-controller="Usuario" asp-action="Logout" method="post">
-                        <button type="submit" class="btn btn-link text-danger p-0 ms-3">
+                    <form asp-controller="Usuario" asp-action="Logout" method="post" class="logout-form">
+                        <button type="submit" class="logout-btn">
                             <i class="bi bi-box-arrow-right"></i>
-                            Cerrar sesión
                         </button>
                     </form>
 
@@ -61,7 +64,6 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     @*  A   R   C   H   I   V   O   S       J   S *@
     <script src="~/js/Constantes.js"></script>

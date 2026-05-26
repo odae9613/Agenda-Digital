@@ -5,13 +5,23 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideEventos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
-		<h3>Editar evento</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Editar vento
+				</h2>
+			</div>
+			<partial name="_MenuAsideEventos" />
+
+		</div>
 		<hr />
 		<div class="row">
 			<div class="col-md-12">
@@ -77,3 +87,4 @@
 			}
 		</div>
 	</div>
+</div>

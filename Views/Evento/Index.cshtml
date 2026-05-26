@@ -8,13 +8,23 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideEventos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
-		<h3>Eventos</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Eventos
+				</h2>
+			</div>
+			<partial name="_MenuAsideEventos" />
+
+		</div>
 		<div id="tablaIndex">
 			<table class="table">
 				<thead>
@@ -29,7 +39,7 @@
 							@Html.DisplayNameFor(model => model.Lista.First().FechaInicio)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Lista.First().CategoriaEvento)
+							@* @Html.DisplayNameFor(model => model.Lista.First().CategoriaEvento) *@ Categoría
 						</th>
 						<th></th>
 					</tr>

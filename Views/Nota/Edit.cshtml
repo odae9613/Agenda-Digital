@@ -5,13 +5,25 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideNotas");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
+    <div class="opcionesHeader">
+
+        <div class="tituloOpciones">
+            <h2>
+                <i class="bi bi-stickies"></i>
+                Editar notas
+            </h2>
+        </div>
+        <partial name="_MenuAsideNotas" />
+
+    </div>
     <h3>Editar nota</h3>
     <hr />
+
     <div class="row">
         <div class="col-md-12">
             <form asp-action="Edit">
@@ -27,6 +39,11 @@
 					<select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
 					<span asp-validation-for="CategoriaId" class="text-danger"></span>
 				</div>
+						<a asp-action="Favorito"
+							   asp-route-id="@Model.Id"
+							   type="button" class="btn btn-outline-primary btn-sm">
+							<i class="bi @((Model.Favorito) ? "bi bi-star-fill" : "bi-star")"></i>
+						</a>
                 <div class="form-group">
                     <label asp-for="Contenido" class="control-label"></label>
                     <textarea asp-for="Contenido" class="form-control"></textarea>

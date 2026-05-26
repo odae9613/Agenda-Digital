@@ -25,11 +25,61 @@ body {
     color: #2D2A32;
 }
 
-.logout{
+/*.logout{
     display: flex;
     flex-direction: row;
     padding-right: 10px;
+}*/
+
+.usuarioPanel {
+    display: flex;
+    align-items: center;
 }
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+}
+
+/* icono usuario */
+.user-icon {
+    font-size: 1.3rem;
+    color: var(--spring-primary, #6fcf97);
+}
+
+/* nombre usuario */
+.user-name {
+    font-weight: 500;
+    color: #2f3e46;
+}
+
+/* botón logout */
+.logout-form {
+    margin: 0;
+}
+
+.logout-btn {
+    border: none;
+    background: transparent;
+    color: #dc3545;
+    font-size: 1.2rem;
+    padding: 6px;
+    border-radius: 10px;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .logout-btn:hover {
+        background: rgba(220, 53, 69, 0.1);
+        transform: translateY(-1px);
+    }
 
 .card,
 .panel,

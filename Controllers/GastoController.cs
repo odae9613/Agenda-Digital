@@ -150,7 +150,8 @@ namespace ImOdNotes.Controllers
             {
                 return NotFound();
             }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaGastos, "Id", "Nombre", gasto.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_context.CategoriaGastos
+                .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", gasto.CategoriaId);
             //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", gasto.UsuarioId);
             return View(gasto);
         }

@@ -5,12 +5,23 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideNotas");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-stickies"></i>
+					Detalles de notas
+				</h2>
+			</div>
+			<partial name="_MenuAsideNotas" />
+
+		</div>
 			<h3>@Html.DisplayFor(model => model.Titulo)</h3>
 		<div>
 			<hr />
@@ -38,8 +49,9 @@
 				   asp-route-id="@Model.Id"
 				   asp-route-page="@ViewBag.PaginaActual"
 				   type="button" class="btn btn-outline-primary btn-sm">
-				<i class="bi @((Model.Favorito) ? "bi bi-star-fill" : "bi-star")"></i>
+				<i class="bi @((Model.Favorito) ? "bi-star-fill" : "bi-star")"></i>
 			</a>
+			<input type="hidden" id="favoritoInput" value="@Model.Favorito.ToString().ToLower()" />
 		</div>
 
 		<div id="finalFormulario">

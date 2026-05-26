@@ -91,6 +91,7 @@ namespace ImOdNotes.Controllers
                 "Id",
                 "Nombre"
             );
+
             return View();
         }
 
@@ -132,7 +133,9 @@ namespace ImOdNotes.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaNotas.Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", nota.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_context.CategoriaNotas
+                .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", nota.CategoriaId);
+
             //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", nota.UsuarioId);
             return View(nota);
         }
@@ -159,8 +162,10 @@ namespace ImOdNotes.Controllers
             {
                 return NotFound();
             }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaNotas, "Id", "Nombre", nota.CategoriaId);
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", nota.UsuarioId);
+
+            ViewBag.CategoriaId = new SelectList(_context.CategoriaNotas
+                .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", nota.CategoriaId);
+
             return View(nota);
         }
 
@@ -226,7 +231,6 @@ namespace ImOdNotes.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.CategoriaId = new SelectList(_context.CategoriaNotas, "Id", "Nombre", nota.CategoriaId);
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", nota.UsuarioId);
             return View(nota);
         }
 

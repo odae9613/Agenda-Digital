@@ -7,12 +7,22 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideNotas");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 <div id="pagina">
 	<div id="principal">
-		<h3>Notas</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-stickies"></i>
+					Notas
+				</h2>
+			</div>
+			<partial name="_MenuAsideNotas" />
+
+		</div>
 		<div class="notas">
 			@foreach (var item in Model.Lista)
 			{
@@ -45,7 +55,6 @@
 						</a>
 						<a asp-action="Favorito"
 							   asp-route-id="@item.Id"
-							@* asp-route-page="@ViewBag.PaginaActual" *@
 							   asp-route-page="@Model.PaginaActual"
 							   type="button" class="btn btn-outline-primary btn-sm">
 							<i class="bi @((item.Favorito) ? "bi bi-star-fill" : "bi-star")"></i>

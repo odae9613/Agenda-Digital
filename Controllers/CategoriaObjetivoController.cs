@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using ImOdNotes.Core.Entities;
+using ImOdNotes.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ImOdNotes.Core.Entities;
-using ImOdNotes.Data.Context;
 
 namespace ImOdNotes.Controllers
 {
@@ -56,8 +57,14 @@ namespace ImOdNotes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,FechaCreacion,FechaActualizacion,UsuarioId")] CategoriaObjetivo categoriaObjetivo)
         {
+            ViewBag.User = User.Identity.Name;
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (ModelState.IsValid)
             {
+                int.TryParse(userIdClaim, out int userId);
+                categoriaObjetivo.UsuarioId = userId;
+
                 _context.Add(categoriaObjetivo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

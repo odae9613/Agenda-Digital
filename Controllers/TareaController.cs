@@ -41,11 +41,6 @@ namespace ImOdNotes.Controllers
                 .Where(t => t.UsuarioId == usuarioId);
             var paginado = _paginationService.Paginacion<Tarea>(tareasQuery, page);
 
-            var tarea = _context.Tareas
-                .Include(t => t.CategoriaTarea)
-                .Include(t => t.Usuario)
-                .Where(t => t.UsuarioId == usuarioId)
-                .ToListAsync();
             return View(paginado);
         }
 
@@ -154,7 +149,8 @@ namespace ImOdNotes.Controllers
             {
                 return NotFound();
             }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaTareas, "Id", "Nombre", tarea.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(_context.CategoriaTareas
+                .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", tarea.CategoriaId);
             //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", tarea.UsuarioId);
             return View(tarea);
         }
@@ -225,7 +221,6 @@ namespace ImOdNotes.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.CategoriaId = new SelectList(_context.CategoriaTareas, "Id", "Nombre", tarea.CategoriaId);
-            //ViewBag.UsuarioId = new SelectList(_context.Usuarios, "Id", "Apellido01", tarea.UsuarioId);
             return View(tarea);
         }
 

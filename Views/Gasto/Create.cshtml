@@ -1,17 +1,28 @@
-﻿@model ImOdNotes.Core.Entities.Gasto
+﻿@using ImOdNotes.Core.Enums
+@model ImOdNotes.Core.Entities.Gasto
 
 @{
 	ViewData["Title"] = "Create";
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideGastos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
-		<h3>Crear gasto</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Crear transacción
+				</h2>
+			</div>
+			<partial name="_MenuAsideGastos" />
+
+		</div>
 		<hr />
 		<div class="row">
 			<div class="col-md-12">
@@ -30,12 +41,45 @@
 								<span asp-validation-for="Monto" class="text-danger"></span>
 							</div>
 						</div>
-						<div class="col-md-6">
+						@* <div class="col-md-6">
 							<div class="form-group">
 								<label asp-for="Tipo" class="control-label"></label>
 								<input asp-for="Tipo" class="form-control" />
 								<span asp-validation-for="Tipo" class="text-danger"></span>
 							</div>
+						</div> *@
+						<div class="form-group col-md-6">
+							<label class="control-label">Tipo</label>
+
+							<div class="d-flex gap-2 flex-wrap">
+								@foreach (var item in Html.GetEnumSelectList<TipoGasto>())
+								{
+									<input type="radio"
+										   class="btn-check"
+										   name="Tipo"
+										   id="tipo_@item.Value"
+										   value="@item.Text"
+										   autocomplete="off"
+										   required />
+
+									<label class="spring-chip @(item.Text == "Ingreso" ? "tipo-ingreso" : "tipo-gasto")"
+										   for="tipo_@item.Value">
+
+										@if (item.Text == "Ingreso")
+										{
+											<i class="bi bi-arrow-down-circle"></i>
+										}
+										else
+										{
+											<i class="bi bi-arrow-up-circle"></i>
+										}
+
+										@item.Text
+									</label>
+								}
+							</div>
+
+							<span asp-validation-for="Tipo" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="row">

@@ -3,12 +3,22 @@
 
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideEventos");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 <div id="pagina">
 	<div id="principal">
-		<h3>Eventos favoritos</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-calendar-event"></i>
+					Eventos favoritos
+				</h2>
+			</div>
+			<partial name="_MenuAsideEventos" />
+
+		</div>
 		<div id="tablaIndex">
     
 			<table class="table">
