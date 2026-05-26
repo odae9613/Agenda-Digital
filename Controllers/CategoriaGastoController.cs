@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using ImOdNotes.Core.Entities;
+using ImOdNotes.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ImOdNotes.Core.Entities;
-using ImOdNotes.Data.Context;
 
 namespace ImOdNotes.Controllers
 {
@@ -22,7 +23,12 @@ namespace ImOdNotes.Controllers
         // GET: CategoriaEvento
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CategoriaGastos.ToListAsync());
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            int.TryParse(userIdClaim, out int usuarioId);
+
+            return View(await _context.CategoriaGastos
+                .Where(w => w.UsuarioId == usuarioId)
+                .ToListAsync());
         }
 
         // GET: CategoriaEvento/Details/5
@@ -56,8 +62,14 @@ namespace ImOdNotes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion")] CategoriaGasto categoriaGasto)
         {
+            ViewBag.User = User.Identity.Name;
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (ModelState.IsValid)
             {
+                int.TryParse(userIdClaim, out int userId);
+                categoriaGasto.UsuarioId = userId;
+
                 _context.Add(categoriaGasto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

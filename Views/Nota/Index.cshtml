@@ -55,7 +55,6 @@
 						</a>
 						<a asp-action="Favorito"
 							   asp-route-id="@item.Id"
-							@* asp-route-page="@ViewBag.PaginaActual" *@
 							   asp-route-page="@Model.PaginaActual"
 							   type="button" class="btn btn-outline-primary btn-sm">
 							<i class="bi @((item.Favorito) ? "bi bi-star-fill" : "bi-star")"></i>

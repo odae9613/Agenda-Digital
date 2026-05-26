@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/pagina.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ImOdNotes.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Calendario.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/enums.css" asp-append-version="true" />
     @*  I   C   O   N   O    *@
     <link rel="icon" type="image/x-icon" href="~/iMod_Notes.ico" />
     @*  F   U   L   L       C   A   L   E   N   D   A   R *@
@@ -33,17 +34,17 @@
 
             @if (User.Identity!.IsAuthenticated)
             {
-                <div class="logout">
+                <div class="user-info">
 
-					<span>
-						@User.Identity.Name
-                        <i class="bi bi-person-circle"></i>
+                    <i class="bi bi-person-circle user-icon"></i>
+
+                    <span class="user-name">
+                        @User.Identity.Name
                     </span>
 
-                    <form asp-controller="Usuario" asp-action="Logout" method="post">
-                        <button type="submit" class="btn btn-link text-danger p-0 ms-3">
+                    <form asp-controller="Usuario" asp-action="Logout" method="post" class="logout-form">
+                        <button type="submit" class="logout-btn">
                             <i class="bi bi-box-arrow-right"></i>
-                            Cerrar sesión
                         </button>
                     </form>
 
