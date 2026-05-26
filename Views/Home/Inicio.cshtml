@@ -7,17 +7,19 @@
 @{
 	List<Evento> eventosMes = ViewBag.eventoMes;
 	List<Evento> eventosSemana = ViewBag.eventoSemana;
-	List<Tarea> tareaMes = ViewBag.tareaMes;
-	List<Tarea> tareaSemana = ViewBag.tareaSemana;
 	List<Evento> listaEventos = ViewBag.listaEventos;
-	List<Tarea> tareas = ViewBag.tareaMes;
+
+	List<Tarea> tareaMes = ViewBag.tareaMes;
 	List<Tarea> tareasSemana = ViewBag.tareasSemana;
 	List<Tarea> listaTareas = ViewBag.listaTareas;
 }
 <div id="paginaInicio">
 	@Html.AntiForgeryToken()
 	<section>
-		<div>Bienvenido, @ViewBag.usuario. </div>
+		<div class="welcome-spring">
+			<span class="welcome-text">Bienvenido,</span>
+			<span class="welcome-user">@ViewBag.usuario</span>
+		</div>
 		<div class="bienvenida">
 			<a>
 				Pendientes de hoy
@@ -149,7 +151,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (var tarea in tareas)
+							@foreach (var tarea in tareaMes)
 							{
 								<tr>
 									<td>
@@ -242,9 +244,30 @@
 		<div class="mes">
 			<h6>Calendario</h6>
 			@*  I   N   I   C   I   O *@
-
+			<div id="miniCalendario"></div>
 
 			@*  F   I   N    *@
 		</div>
 	</aside>
 </div>
+
+@section Scripts {
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+
+			var calendarEl = document.getElementById('miniCalendario');
+			if (!calendarEl) return;
+
+			var calendar = new FullCalendar.Calendar(calendarEl, {
+
+				initialView: 'dayGridMonth',
+				height: 'auto',
+				locale: 'es',
+				headerToolbar: false,
+
+			});
+
+			calendar.render();
+		});
+	</script>
+}

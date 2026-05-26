@@ -163,7 +163,7 @@ namespace ImOdNotes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descripcion,FechaInicio,FechaFinal,HoraInicio,HoraFinal,Color,Ubicacion,Favorito,CategoriaId")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descripcion,FechaInicio,FechaFinal,HoraInicio,HoraFinal,Ubicacion,Favorito,CategoriaId")] Evento evento)
         {
             if (id != evento.Id)
             {
@@ -202,8 +202,8 @@ namespace ImOdNotes.Controllers
             // Mantener usuario logeado
             eventoDb.UsuarioId = usuarioId;
 
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     await _context.SaveChangesAsync();
@@ -220,8 +220,9 @@ namespace ImOdNotes.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos, "Id", "Nombre", evento.CategoriaId);
+            //}
+            ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos
+                .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", evento.CategoriaId);
             //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", evento.UsuarioId);
             return View(evento);
         }

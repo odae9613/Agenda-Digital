@@ -23,7 +23,12 @@ namespace ImOdNotes.Controllers
         // GET: CategoriaEvento
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CategoriaEventos.ToListAsync());
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            int.TryParse(userIdClaim, out int usuarioId);
+
+            return View(await _context.CategoriaEventos
+                .Where(w => w.UsuarioId == usuarioId)
+                .ToListAsync());
         }
 
         // GET: CategoriaEvento/Details/5
@@ -57,8 +62,14 @@ namespace ImOdNotes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion")] CategoriaEvento categoriaEvento)
         {
+            ViewBag.User = User.Identity.Name;
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (ModelState.IsValid)
             {
+                int.TryParse(userIdClaim, out int userId);
+                categoriaEvento.UsuarioId = userId;
+
                 _context.Add(categoriaEvento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

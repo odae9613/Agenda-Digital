@@ -41,12 +41,19 @@
 								<span asp-validation-for="FechaVencimiento" class="text-danger"></span>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label asp-for="Prioridad" class="control-label"></label>
-								<input asp-for="Prioridad" class="form-control" />
-								<span asp-validation-for="Prioridad" class="text-danger"></span>
+						<div class="form-group col-md-6">
+							<label class="control-label">Prioridad</label>
+
+							<div class="btn-group w-100" role="group" aria-label="Prioridad">
+								@foreach (var item in Html.GetEnumSelectList<ImOdNotes.Core.Enums.Prioridad>())
+								{
+									var isChecked = item.Value == ((int)Model.Prioridad).ToString();
+
+									
+								}
 							</div>
+
+							<span asp-validation-for="Prioridad" class="text-danger"></span>
 						</div>
 					</div>
 					<div class="row">

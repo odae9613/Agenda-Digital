@@ -32,6 +32,37 @@
             /*justify-content: flex-end;*/
         }
 
+        /*  Bienvenida  */
+.welcome-spring {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    /* fondo suave primaveral */
+    background: linear-gradient(135deg, #e8f8f5, #fff7fb);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.welcome-text {
+    color: #5a6b5d; /* verde grisáceo suave */
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 400;
+}
+
+.welcome-user {
+    color: #e85a9b; /* rosa floral */
+    font-family: "Georgia", serif;
+    font-weight: 700;
+    font-style: italic;
+    /* detalle decorativo */
+    background: rgba(232, 90, 155, 0.08);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(232, 90, 155, 0.2);
+}
+
 h3 {
     text-align: center;
     font-size: 1.5em;
@@ -111,4 +142,23 @@ h3 {
 
 .contactos {
     width: 50px;
+}
+
+#miniCalendario .fc-event {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#miniCalendario .fc-daygrid-event {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+/* elimina barras azules */
+#miniCalendario .fc-h-event {
+    background: transparent !important;
+    border: none !important;
 }

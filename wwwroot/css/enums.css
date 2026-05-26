@@ -1,0 +1,66 @@
+﻿
+/*  PRIORIDAD   */
+.prioridad-baja {
+    background: #2ecc71;
+    color: white;
+    border: 1px solid #27ae60;
+}
+
+.prioridad-media {
+    background: #f1c40f;
+    color: #1a1a1a;
+    border: 1px solid #d4ac0d;
+}
+
+.prioridad-alta {
+    background: #e67e22;
+    color: white;
+    border: 1px solid #d35400;
+}
+
+.prioridad-urgente {
+    background: #e74c3c;
+    color: white;
+    border: 1px solid #c0392b;
+}
+
+/* seleccionado */
+.btn-check:checked + .spring-chip {
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.30);
+    filter: brightness(1.15);
+    outline: 2px solid rgba(255,255,255,0.25);
+}
+
+/*  TIPOGASTO   */
+.tipo-spring {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+}
+
+    .tipo-spring:hover {
+        transform: scale(1.05);
+    }
+
+.tipo-ingreso {
+    background: #2ecc71;
+    color: white;
+    border: 1px solid #27ae60;
+}
+
+.tipo-gasto {
+    background: #e91e63;
+    color: white;
+    border: 1px solid #c2185b;
+}
+
+.tipo-spring i {
+    font-size: 18px;
+}
