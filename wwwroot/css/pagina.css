@@ -11,27 +11,25 @@
 }
 
 #tablaIndex {
-    border: solid 0.5px #00afaf;
+    border: solid 0.5px var(--menu-list-borde);
     border-radius: 5px;
     padding: 5px;
     /*min-height: 550px;*/
 }
 
 table {
-    border: solid 1px #009191;
+    border: solid 1px var(--menu-list-hover);
     border-radius: 15px;
     padding: 5px;
     width: 100%;
 }
 
     table thead tr {
-        border-bottom: solid 2px #00afaf;
+        border-bottom: solid 2px var(--thead);
         color: #009191;
     }
 
 form {
-    /*display: flex;
-    flex-direction: row;*/
     width: 100%;
     height: auto;
 }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ImOdNotes.Core.Entities.Gasto>
+﻿@using ImOdNotes.Models.ViewModels;
+@model PaginadoViewModel<ImOdNotes.Core.Entities.Gasto>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 @section MenuPagina {
@@ -24,24 +25,24 @@
 			<thead>
 				<tr>
 					<th>
-						@Html.DisplayNameFor(model => model.Titulo)
+						Título
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.Monto)
+						Monto
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.Notas)
+						Notas
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.Tipo)
+						Tipo
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.CategoriaGasto)
+						Categoría
 					</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach (var item in Model)
+				@foreach (var item in Model.Lista)
 				{
 					<tr>
 						<td>
@@ -57,40 +58,16 @@
 							@Html.DisplayFor(modelItem => item.Tipo)
 						</td>
 						<td>
-							@Html.DisplayFor(modelItem => item.CategoriaGasto)
+							@Html.DisplayFor(modelItem => item.CategoriaGasto.Nombre)
 						</td>
 					</tr>
 				}
 			</tbody>
 		</table>
-		<!-- ANTERIOR -->
-		<ul class="pagination mb-0">
-			<li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
-				<a class="page-link"
-					   asp-action="ListaFavoritos"
-					   asp-route-page="@(ViewBag.PaginaActual - 1)">
-					Anterior
-				</a>
-			</li>
-
-			@for (int i = 1; i <= ViewBag.TotalPaginas; i++)
-			{
-				<li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
-					<a class="page-link"
-						   asp-action="ListaFavoritos"
-						   asp-route-page="@i">
-						@i
-					</a>
-				</li>
-			}
-
-			<li class="page-item @(ViewBag.PaginaActual == ViewBag.TotalPaginas ? "disabled" : "")">
-				<a class="page-link"
-					   asp-action="ListaFavoritos"
-					   asp-route-page="@(ViewBag.PaginaActual + 1)">
-					Siguiente
-				</a>
-			</li>
-		</ul>
+		
+		@* P    A   G   I   N   A   C   I   O   N *@
+		<div class="paginacion">
+			<partial name="_Paginacion" model="Model" />
+		</div>
 	</div>
 </div>

@@ -1,13 +1,19 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo-body);
+    color: var(--letra-body);
+}
+
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /*background-color: aliceblue;*/
-    /*background-color: #EDECBD;*/
-    /*background-color: #FAC1B5;*/
-    background-color: #EFE6D3;
-    border-bottom: 1px solid #D8CCB5;
+    background-color: var(--header);
+    border-bottom: 1px solid var(--header-borde);
     height: 75px;
     width: 100%;
     position: fixed;
@@ -19,17 +25,6 @@ header img{
     height: 50px;
     padding-left: 10px;
 }
-
-body {
-    background-color: #F7F2E8;
-    color: #2D2A32;
-}
-
-/*.logout{
-    display: flex;
-    flex-direction: row;
-    padding-right: 10px;
-}*/
 
 .usuarioPanel {
     display: flex;
@@ -49,24 +44,20 @@ body {
 /* icono usuario */
 .user-icon {
     font-size: 1.3rem;
-    color: var(--spring-primary, #6fcf97);
+    color: var(--user-icon);
 }
 
 /* nombre usuario */
 .user-name {
     font-weight: 500;
-    color: #2f3e46;
 }
 
 /* botón logout */
-.logout-form {
-    margin: 0;
-}
 
 .logout-btn {
     border: none;
     background: transparent;
-    color: #dc3545;
+    color: var(--rojo-cerrar-sesion);
     font-size: 1.2rem;
     padding: 6px;
     border-radius: 10px;

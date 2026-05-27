@@ -1,0 +1,53 @@
+﻿
+:root {
+    --fondo-body: #F7F2E8;
+    --letra-body: #2D2A32;
+    --user-icon: #6fcf97;
+    --blue-sky: #AFC6C9;
+    --lila-soft: #C59FBE;
+    --lila-light: #C9A4C8;
+    --button-blue: #4A90E2;
+    --menu-izquierda: #B9C97A;
+    --menu-list-borde: #008484;
+    --menu-list-hover: #009191;
+    --funcion-izquierda: #8FA65A;
+    --thead: #00AFAF;
+    --bienvenida: #E8F8F5;
+    --header: #EFE6D3;
+    --header-borde: #D8CCB5;
+    --entidad-inicio: #8FB9B3;
+    --rosa-floral: #E85A9B;
+    --rojo-cerrar-sesion: #DC3545;
+    --negro: #000000;
+    --blanco: #FFFFFF;
+    --azul-categoria: #D0EBFF;
+    --favorito-menu: #FFE066;
+    --notificacion: #98B8B9;
+    /*B*/
+    --verde-grisaceo: #5a6b5d;
+    /*  Prioridad   */
+    --baja-background: #2ecc71;
+    --baja-borde: #27ae60;
+    --media-background: #f1c40f;
+    --media-borde: #d4ac0d;
+    --alta-background: #e67e22;
+    --alta-borde: #d35400;
+    --urgente-background: #e74c3c;
+    --urgente-borde: #c0392b;
+    /*ñ*/
+    --finance-green: #A8D5BA;
+    --finance-green-dark: #6FA67A;
+    --finance-pink: #E8B6C8;
+    --finance-pink-dark: #C97B9F;
+    --finance-blue: #AFC6C9;
+    --finance-blue-dark: #6F9AA0;
+    --finance-lila: #C8A3C8;
+    --finance-bg: #F8F5F0;
+    --finance-white: #FFFDF9;
+    --finance-text: #5E5A55;
+    --finance-border: #DDD2C7;
+    /*  RegistroLogin   */
+    --usuario-login: #98B8B9;
+    --input-focus: #0A9EE0;
+    --input-type: #1A3454;
+}

@@ -1,27 +1,27 @@
 ﻿
 /*  PRIORIDAD   */
 .prioridad-baja {
-    background: #2ecc71;
+    background: var(--baja-background);
     color: white;
-    border: 1px solid #27ae60;
+    border: 1px solid var(--baja-borde);
 }
 
 .prioridad-media {
-    background: #f1c40f;
+    background: var(--media-background);
     color: #1a1a1a;
-    border: 1px solid #d4ac0d;
+    border: 1px solid var(--media-borde);
 }
 
 .prioridad-alta {
-    background: #e67e22;
+    background: var(--alta-background);
     color: white;
-    border: 1px solid #d35400;
+    border: 1px solid var(--alta-borde);
 }
 
 .prioridad-urgente {
-    background: #e74c3c;
+    background: var(--urgente-background);
     color: white;
-    border: 1px solid #c0392b;
+    border: 1px solid var(--urgente-borde);
 }
 
 /* seleccionado */

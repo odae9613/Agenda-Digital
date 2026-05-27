@@ -7,7 +7,7 @@
     width: 100%;
     gap: 15px;
     margin-top: 5px;
-    color: #ffffff;
+    color: var(--blanco);
 }
 
 .cardNotas {
@@ -16,8 +16,8 @@
     padding: 15px;
     width: 260px;
     height: 250px;
-    background-color: #009191;
-    border: solid 1px #008484;
+    background-color: var(--menu-list-hover);
+    border: solid 1px var(--menu-list-borde);
     border-radius: 10px;
     text-decoration: none;
     color: white;
@@ -54,7 +54,3 @@
 .acciones{
     justify-content: space-between;
 }
-
-/*.tituloCard i {
-    color: #ffffff;
-}*/

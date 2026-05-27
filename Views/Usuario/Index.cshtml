@@ -28,12 +28,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Lista.First().FechaNacimiento)
                         </th>
-                        @* <th>
-                            @Html.DisplayNameFor(model => model.LugarNacimiento)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Nacionalidad)
-                        </th> *@
                         <th>
                             @Html.DisplayNameFor(model => model.Lista.First().Email)
                         </th>
@@ -43,12 +37,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Lista.First().Rol)
                         </th>
-                        @* <th>
-                            @Html.DisplayNameFor(model => model.Password)
-                        </th> *@
-                        @* <th>
-                            @Html.DisplayNameFor(model => model.URLFotoPerfil)
-                        </th> *@
                     </tr>
                 </thead>
                 <tbody>
@@ -64,12 +52,6 @@
                             <td>
                                 @item.FechaNacimiento.ToString("dd/MM/yyyy")
                             </td>
-                            @* <td>
-                                @Html.DisplayFor(modelItem => item.LugarNacimiento)
-                            </td> *@
-                            @*  <td>
-                                @Html.DisplayFor(modelItem => item.Nacionalidad)
-                            </td> *@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Email)
                             </td>
@@ -77,14 +59,8 @@
                                 @Html.DisplayFor(modelItem => item.Genero)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Rol.Id)
+                                @Html.DisplayFor(modelItem => item.Rol.Nombre)
                             </td>
-                            @* <td>
-                                @Html.DisplayFor(modelItem => item.Password)
-                            </td> *@
-                            @* <td>
-                                @Html.DisplayFor(modelItem => item.URLFotoPerfil)
-                            </td> *@
                             <td>
                                 <a asp-action="Details" asp-route-id="@item.Id"
                                        type="button"

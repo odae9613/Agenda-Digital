@@ -1,5 +1,5 @@
-﻿@using ImOdNotes.Models.ViewModels
-@model PaginadoViewModel<ImOdNotes.Core.Entities.Tarea>
+﻿@model PaginadoViewModel<ImOdNotes.Core.Entities.Tarea>
+@using ImOdNotes.Models.ViewModels
 @* @model IEnumerable<ImOdNotes.Core.Entities.Tarea> *@
 
 @{
@@ -31,13 +31,13 @@
 					<tr>
 						<th></th>
 						<th>
-							@Html.DisplayNameFor(model => model.Lista.First().Titulo)
+							Título
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Lista.First().Descripcion)
+							Descripción
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Lista.First().Prioridad)
+							Prioridad
 						</th>
 						<th>
 							Vencimiento
@@ -45,7 +45,6 @@
 						<th>
 							Categoría
 						</th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody>

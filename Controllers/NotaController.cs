@@ -43,15 +43,6 @@ namespace ImOdNotes.Controllers
                 .Where(e => e.UsuarioId == usuarioId);
             var paginado = _paginacionService.Paginacion<Nota>(notasQuery, page);
 
-            int totalNotasFavoritos = await _context.Notas
-                                        .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo las notas favoritos del usuario
-                                        .CountAsync();
-
-            var nota = _context.Notas
-                .Include(n => n.CategoriaNota)
-                .Include(n => n.Usuario)
-                .Where(e => e.UsuarioId == usuarioId)
-                .ToListAsync();
             return View(paginado);
         }
 
@@ -283,7 +274,7 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
-            Nota nota = _context.Notas
+            Nota? nota = _context.Notas
                 .FirstOrDefault(x => x.Id == id && x.UsuarioId == usuarioId);
             if (nota != null)
             {
@@ -302,23 +293,13 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-            int totalNotasFavoritos = await _context.Notas
-                                        .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo las notas favoritos del usuario
-                                        .CountAsync();
-            int pageSize = 5;
-            int totalPaginas = (int)Math.Ceiling((double)totalNotasFavoritos / pageSize);
-            ViewBag.TotalRegistros = totalNotasFavoritos;
-            ViewBag.TotalPaginas = totalPaginas;
-            ViewBag.PaginaActual = page;
-
-            List<Nota> data = await _context.Notas
-                                .Where(e => e.Favorito && e.UsuarioId == usuarioId)
-                                .OrderBy(e => e.Id)
-                                .Skip((page - 1) * pageSize)
-                                .Take(pageSize)
-                                .ToListAsync();
-
-            return View(data);
+            //  PAGINACIÓN MANUAL
+            var notasPaginacion = _context.Notas
+                .Include(n => n.CategoriaNota)
+                .Include(n => n.Usuario)
+                .Where(n => n.UsuarioId == usuarioId && n.Favorito);
+            var paginado = _paginacionService.Paginacion<Nota>(notasPaginacion, page);
+            return View(paginado);
         }
 
         private bool NotaExists(int id)
