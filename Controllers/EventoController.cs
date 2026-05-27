@@ -43,11 +43,6 @@ namespace ImOdNotes.Controllers
                 .Where(e => e.UsuarioId == usuarioId);
             var paginado = _paginacionService.Paginacion<Evento>(eventosPaginacion, page);
 
-            var eventos = _context.Eventos
-                .Include(e => e.CategoriaEvento)
-                .Include(e => e.Usuario)
-                .Where(e => e.UsuarioId == usuarioId)
-                .ToListAsync();
             return View(paginado);
         }
 
@@ -219,11 +214,10 @@ namespace ImOdNotes.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
             //}
             ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos
                 .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", evento.CategoriaId);
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", evento.UsuarioId);
             return View(evento);
         }
 
@@ -276,7 +270,7 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
-            Evento evento = _context.Eventos
+            Evento? evento = _context.Eventos
                 .FirstOrDefault(x => x.Id == id && x.UsuarioId == usuarioId);
             if (evento != null)
             {
@@ -295,23 +289,17 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-            int totalEventosFavoritos = await _context.Eventos
-                                        .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo los eventos favoritos del usuario
-                                        .CountAsync();
-            int pageSize = 5;
-            int totalPaginas = (int)Math.Ceiling((double)totalEventosFavoritos / pageSize);
-            ViewBag.TotalRegistros = totalEventosFavoritos;
-            ViewBag.TotalPaginas = totalPaginas;
-            ViewBag.PaginaActual = page;
+            //int totalEventosFavoritos = await _context.Eventos
+            //                            .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo los eventos favoritos del usuario
+            //                            .CountAsync();
+            //  PAGINACIÓN MANUAL
+            var eventosPaginacion = _context.Eventos
+                .Include(e => e.CategoriaEvento)
+                .Include(e => e.Usuario)
+                .Where(e => e.UsuarioId == usuarioId && e.Favorito);
+            var paginado = _paginacionService.Paginacion<Evento>(eventosPaginacion, page);
 
-            List<Evento> data = await _context.Eventos
-                                .Where(e => e.Favorito && e.UsuarioId == usuarioId)
-                                .OrderBy(e => e.Id)
-                                .Skip((page - 1) * pageSize)
-                                .Take(pageSize)
-                                .ToListAsync();
-
-            return View(data);
+            return View(paginado);
         }
 
         private bool EventoExists(int id)

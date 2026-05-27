@@ -40,13 +40,6 @@ namespace ImOdNotes.Controllers
                 .Where(g => g.UsuarioId == usuarioId);
             var paginado = _paginacionService.Paginacion<Gasto>(gastosQuery, page);
 
-            
-
-            var gasto = _context.Gastos
-                .Include(g => g.CategoriaGasto)
-                .Include(g => g.Usuario)
-                .Where(g => g.UsuarioId == usuarioId)
-                .ToListAsync();
             return View(paginado);
         }
 
@@ -272,7 +265,7 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
-            Gasto gasto = _context.Gastos
+            Gasto? gasto = _context.Gastos
                 .FirstOrDefault(x => x.Id == id && x.UsuarioId == usuarioId);
             if (gasto != null)
             {
@@ -291,28 +284,28 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-            int totalGastosFavoritos = await _context.Gastos
-                                        .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo los gastos favoritos del usuario
-                                        .CountAsync();
-            int pageSize = 5;
-            int totalPaginas = (int)Math.Ceiling((double)totalGastosFavoritos / pageSize);
-            ViewBag.TotalRegistros = totalGastosFavoritos;
-            ViewBag.TotalPaginas = totalPaginas;
-            ViewBag.PaginaActual = page;
+            //  PAGINACIÓN MANUAL
+            var gastosQuery = _context.Gastos
+                .Include(g => g.CategoriaGasto)
+                .Include(g => g.Usuario)
+                .Where(g => g.UsuarioId == usuarioId && g.Favorito);
+            var paginado = _paginacionService.Paginacion<Gasto>(gastosQuery, page);
 
-            List<Gasto> data = await _context.Gastos
-                                .Where(e => e.Favorito && e.UsuarioId == usuarioId)
-                                .OrderBy(e => e.Id)
-                                .Skip((page - 1) * pageSize)
-                                .Take(pageSize)
-                                .ToListAsync();
-
-            return View(data);
+            return View(paginado);
         }
 
         public IActionResult Balance()
         {
-            var movimientos = _context.Gastos.ToList();
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!int.TryParse(userIdClaim, out int usuarioId))
+            {
+                return Unauthorized();
+            }
+
+            var movimientos = _context.Gastos
+                .Where(x => x.UsuarioId == usuarioId)
+                .ToList();
 
             decimal ingresos = movimientos
                 .Where(x => x.Tipo == "Ingreso")

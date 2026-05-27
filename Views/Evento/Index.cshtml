@@ -55,7 +55,6 @@
 								@Html.DisplayFor(modelItem => item.Descripcion)
 							</td>
 							<td>
-								@* @Html.DisplayFor(modelItem => item.Fecha) *@
 								@item.FechaInicio.ToString("dd/MM/yyyy")
 							</td>
 							<td>
@@ -96,37 +95,6 @@
 			<div class="paginacion">
 				<partial name="_Paginacion" model="Model" />
 			</div>
-			@* <ul class="pagination mb-0">
-				<li class="page-item @(ViewBag.PaginaActual == 1 ? "disabled" : "")">
-					<a class="page-link"
-						   asp-action="Index"
-						   asp-route-page="@(ViewBag.PaginaActual - 1)">
-						Anterior
-					</a>
-				</li>
-
-				@for (int i = 1; i <= ViewBag.TotalPaginas; i++)
-				{
-					<li class="page-item @(i == ViewBag.PaginaActual ? "active" : "")">
-						<a class="page-link"
-							   asp-action="Index"
-							   asp-route-page="@i">
-							@i
-						</a>
-					</li>
-				}
-
-				<li class="page-item @(ViewBag.PaginaActualFav == ViewBag.TotalPaginas ? "disabled" : "")">
-					<a class="page-link"
-						   asp-action="Index"
-						   asp-route-page="@(ViewBag.PaginaActual + 1)">
-						Siguiente
-					</a>
-				</li>
-			</ul> *@
 		</div>
-	</div>
-
-	<div id="finalFormulario">
 	</div>
 </div>

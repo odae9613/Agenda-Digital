@@ -24,7 +24,7 @@
 		}
 		<li class="page-item @(Model.PaginaActual == Model.TotalPaginas ? "disabled" : "")">
 			<a class="page-link"
-				   asp-action="Index"
+				   asp-action="@ViewContext.RouteData.Values["action"]"
 				   asp-route-page="@(Model.PaginaActual + 1)">
 				Siguiente
 			</a>

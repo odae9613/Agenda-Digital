@@ -16,11 +16,11 @@ namespace ImOdNotes.Controllers
     public class TareaController : Controller
     {
         private readonly MyDbContext _context;
-        private readonly PaginacionService _paginationService;
+        private readonly PaginacionService _paginacionService;
         public TareaController(MyDbContext context)
         {
             _context = context;
-            _paginationService = new PaginacionService();
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Tarea
@@ -39,7 +39,7 @@ namespace ImOdNotes.Controllers
                 .Include(t => t.CategoriaTarea)
                 .Include(t => t.Usuario)
                 .Where(t => t.UsuarioId == usuarioId);
-            var paginado = _paginationService.Paginacion<Tarea>(tareasQuery, page);
+            var paginado = _paginacionService.Paginacion<Tarea>(tareasQuery, page);
 
             return View(paginado);
         }
@@ -273,7 +273,7 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
-            Tarea tarea = _context.Tareas
+            Tarea? tarea = _context.Tareas
                 .FirstOrDefault(x => x.Id == id && x.UsuarioId == usuarioId);
             if (tarea != null)
             {
@@ -292,23 +292,13 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-            int totalTareasFavoritos = await _context.Tareas
-                                        .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo las tareas favoritos del usuario
-                                        .CountAsync();
-            int pageSize = 5;
-            int totalPaginas = (int)Math.Ceiling((double)totalTareasFavoritos / pageSize);
-            ViewBag.TotalRegistros = totalTareasFavoritos;
-            ViewBag.TotalPaginas = totalPaginas;
-            ViewBag.PaginaActual = page;
-
-            List<Tarea> data = await _context.Tareas
-                                .Where(e => e.Favorito && e.UsuarioId == usuarioId)
-                                .OrderBy(e => e.Id)
-                                .Skip((page - 1) * pageSize)
-                                .Take(pageSize)
-                                .ToListAsync();
-
-            return View(data);
+            //  PAGINACIÓN MANUAL
+            var tareasPaginacion = _context.Tareas
+                .Include(t => t.CategoriaTarea)
+                .Include(t => t.Usuario)
+                .Where(t => t.UsuarioId == usuarioId && t.Favorito);
+            var paginado = _paginacionService.Paginacion<Tarea>(tareasPaginacion, page);
+            return View(paginado);
         }
 
         private bool TareaExists(int id)
