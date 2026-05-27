@@ -1,43 +1,26 @@
 ﻿
-.leftFinanzas{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+#paginaFinanzas {
+    padding: 10px;
 }
-.rightFinanzas{
-    display: flex;
-    background-color: #0094ff;
-    flex: 9;
-    border-radius: 10px;
-        text-align: center;
-        justify-content:center;
 
+.cabeceraFinanzas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: var(--finance-lila);
 }
-    .rightFinanzas a:hover{
-        color: #aaaaaa;
-    }
-    #paginaFinanzas {
-        padding: 10px;
+
+    .cabeceraFinanzas i{
+        font-size: 50px;
     }
 
-.rightFinanzas a {
-    text-decoration: none;
-        color: #ffffff;
-        font-size: 30px;
-}
-
-    .cabeceraFinanzas {
+    .balanceContainer {
         display: flex;
-        flex-direction: row;
+        gap: 20px;
+        margin-top: 20px;
     }
 
-.balanceContainer {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-    .balanceContainer .card {
+    .balanceContainer .financeCard {
         padding: 20px;
         border-radius: 12px;
         width: 420px;
@@ -45,13 +28,16 @@
     }
 
 .ingreso {
-    background: #198754;
+    background: var(--finance-green);
+    border: solid 2px var(--finance-green-dark);
 }
 
 .gasto {
-    background: #dc3545;
+    background: var(--finance-pink);
+    border: solid 2px var(--finance-pink-dark);
 }
 
 .total {
-    background: #0d6efd;
+    background: var(--finance-blue);
+    border: solid 2px var(--finance-blue-dark);
 }

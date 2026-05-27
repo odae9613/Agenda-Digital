@@ -7,10 +7,10 @@ namespace ImOdNotes.Configuration
         private static readonly Dictionary<Type, int> RegistrosPorPagina = new()
         {
             {typeof(Evento), 10 },
-            {typeof(Gasto), 5 },
+            {typeof(Gasto), 10 },
             {typeof(Nota), 8 },
             {typeof(Tarea), 10 },
-            {typeof(Usuario), 3 },
+            {typeof(Usuario), 10 },
             //{typeof() },
         };
         public static int Get<T>()
