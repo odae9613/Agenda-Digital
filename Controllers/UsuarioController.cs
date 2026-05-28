@@ -218,7 +218,7 @@ namespace ImOdNotes.Controllers
                 Nombre = model.NombreUsuario,
                 Apellido01 = "N/A",
                 FechaNacimiento = DateTime.Now,
-                RolId = 3 // Rol correspondiente a "usuario estándar"
+                RolId = 2 // Rol correspondiente a "usuario estándar"
             };
 
             usuario.Password = _passwordHasher.HashPassword(usuario, model.Password);
