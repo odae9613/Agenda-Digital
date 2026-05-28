@@ -149,7 +149,6 @@ namespace ImOdNotes.Controllers
                 return NotFound();
             }
             ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos, "Id", "Nombre", evento.CategoriaId);
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", evento.UsuarioId);
             return View(evento);
         }
 
@@ -158,13 +157,8 @@ namespace ImOdNotes.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descripcion,FechaInicio,FechaFinal,HoraInicio,HoraFinal,Ubicacion,Favorito,CategoriaId")] Evento evento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descripcion,FechaInicio,FechaFinal,HoraInicio,HoraFinal,Ubicacion,CategoriaId")] Evento evento)
         {
-            if (id != evento.Id)
-            {
-                return NotFound();
-            }
-
             // Usuario autenticado
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -173,14 +167,16 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
+            if (id != evento.Id)
+                return NotFound();
+
+
             // Buscar la tarea original del usuario
             var eventoDb = await _context.Eventos
                 .FirstOrDefaultAsync(t => t.Id == id && t.UsuarioId == usuarioId);
 
             if (eventoDb == null)
-            {
                 return NotFound();
-            }
 
             // Actualizar SOLO los campos editables
             eventoDb.Titulo = evento.Titulo;
@@ -197,28 +193,11 @@ namespace ImOdNotes.Controllers
             // Mantener usuario logeado
             eventoDb.UsuarioId = usuarioId;
 
-            //if (ModelState.IsValid)
-            //{
-                try
-                {
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EventoExists(evento.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                //return RedirectToAction(nameof(Index));
-            //}
+            await _context.SaveChangesAsync();
+                
             ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos
                 .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", evento.CategoriaId);
-            return View(evento);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Evento/Delete/5
@@ -245,7 +224,7 @@ namespace ImOdNotes.Controllers
                 return NotFound();
             }
 
-            return View(evento);
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Evento/Delete/5
@@ -288,10 +267,6 @@ namespace ImOdNotes.Controllers
             {
                 return Unauthorized();
             }
-
-            //int totalEventosFavoritos = await _context.Eventos
-            //                            .Where(e => e.Favorito && e.UsuarioId == usuarioId)  // Filtra solo los eventos favoritos del usuario
-            //                            .CountAsync();
             //  PAGINACIÓN MANUAL
             var eventosPaginacion = _context.Eventos
                 .Include(e => e.CategoriaEvento)

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ImOdNotes</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-	@* <link rel="stylesheet" href="~/css/usuarioLogin.css" asp-append-version="true" /> *@
 	@* A    R   C   H   I   V   O   S       CSS *@
 	<link rel="stylesheet" href="~/css/Calendario.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/constantes.css" asp-append-version="true" />
@@ -19,6 +18,7 @@
     <link rel="stylesheet" href="~/css/pagina.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ImOdNotes.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/enums.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tarea.css" asp-append-version="true" />
     @*  I   C   O   N   O    *@
     <link rel="icon" type="image/x-icon" href="~/iMod_Notes.ico" />
     @*  F   U   L   L       C   A   L   E   N   D   A   R *@
@@ -30,7 +30,7 @@
 </head>
 <body>
     <header>
-        <img src="~/img/iMod_Notes.png"/> 
+        <img src="~/img/NotasLilaBloom.png"/> 
         <div class="usuarioPanel">
 
             @if (User.Identity!.IsAuthenticated)

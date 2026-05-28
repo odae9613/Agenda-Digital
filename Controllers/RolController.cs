@@ -8,23 +8,30 @@ using Microsoft.EntityFrameworkCore;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
 using Microsoft.AspNetCore.Authorization;
+using ImOdNotes.Services;
 
 namespace ImOdNotes.Controllers
 {
     [Authorize(Roles="Administrador")]
     public class RolController : Controller
     {
+        public readonly PaginacionService _paginacionService;
         private readonly MyDbContext _context;
 
         public RolController(MyDbContext context)
         {
             _context = context;
+            _paginacionService = new PaginacionService();
         }
 
         // GET: Rol
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await _context.Roles.ToListAsync());
+            //  PAGINACIÓN MANUAL
+            var rolesQuery = _context.Roles.AsNoTracking();
+            var paginado = _paginacionService.Paginacion<Rol>(rolesQuery, page);
+
+            return View(paginado);
         }
 
         // GET: Rol/Details/5

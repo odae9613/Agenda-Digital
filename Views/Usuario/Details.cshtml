@@ -5,13 +5,25 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideUsuarios");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
     <div id="principal">
-        <h3>Detalles del usuario: @Html.DisplayFor(model => model.NombreUsuario)</h3>
+        <div class="opcionesHeader">
+
+            <div class="tituloOpciones">
+                <h2>
+                    <i class="bi bi-people"></i>
+                    Detalles de usuario
+                </h2>
+            </div>
+            <partial name="_MenuAsideUsuarios" />
+
+		</div>
+		<h3>Detalles del usuario: @Html.DisplayFor(model => model.NombreUsuario)</h3>
+        <hr />
         <div>
             <hr />
             <dl class="row">

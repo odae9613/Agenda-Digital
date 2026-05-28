@@ -53,11 +53,6 @@ namespace ImOdNotes.Core.Entities
         public ICollection<Gasto> Gastos { get; set; } = new List<Gasto>();
         public ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
         public ICollection<Objetivo> Objetivos { get; set; } = new List<Objetivo>();
-        //public ICollection<CategoriaNota> CategoriaNotas { get; set; } = new List<CategoriaNota>();
-        //public ICollection<CategoriaGasto> CategoriaGastos { get; set; } = new List<CategoriaGasto>();
-        //public ICollection<CategoriaEvento> CategoriaEventos { get; set; } = new List<CategoriaEvento>();
-        //public ICollection<CategoriaObjetivo> CategoriaObjetivos { get; set; } = new List<CategoriaObjetivo>();
-        //public ICollection<CategoriaTarea> CategoriaTareas { get; set; } = new List<CategoriaTarea>();
     }
     public enum Genero
     {

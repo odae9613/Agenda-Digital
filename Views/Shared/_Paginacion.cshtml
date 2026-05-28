@@ -16,7 +16,7 @@
 		{
 			<li class="page-item @(i == Model.PaginaActual ? "active" : "")">
 				<a class="page-link"
-					   asp-action="Index"
+					   asp-action="a@ViewContext.RouteData.Values["action"]"
 					   asp-route-page="@i">
 					@i
 				</a>

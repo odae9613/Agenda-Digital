@@ -26,15 +26,15 @@
     /*B*/
     --verde-grisaceo: #5a6b5d;
     /*  Prioridad   */
-    --baja-background: #2ecc71;
-    --baja-borde: #27ae60;
-    --media-background: #f1c40f;
-    --media-borde: #d4ac0d;
-    --alta-background: #e67e22;
-    --alta-borde: #d35400;
-    --urgente-background: #e74c3c;
-    --urgente-borde: #c0392b;
-    /*ñ*/
+    --baja-background: #d8f3dc;
+    --baja-borde: #95d5b2;
+    --media-background: #dbeafe;
+    --media-borde: #93c5fd;
+    --alta-background: #fde68a;
+    --alta-borde: #fbbf24;
+    --urgente-background: #fecdd3;
+    --urgente-borde: #fb7185;
+    /*  Gastos  */
     --finance-green: #A8D5BA;
     --finance-green-dark: #6FA67A;
     --finance-pink: #E8B6C8;

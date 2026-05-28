@@ -15,11 +15,6 @@ namespace ImOdNotes.Controllers
             _context = context;
             _logger = logger;
         }
-
-        //public IActionResult Calendar()
-        //{
-        //    return View();
-        //}
         
         public IActionResult Calendar()
         {

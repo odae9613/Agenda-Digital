@@ -1,0 +1,81 @@
+﻿/* =========================================
+   PRIORIDADES - SISTEMA GLOBAL
+========================================= */
+
+/* CONTENEDOR */
+.prioridad-selector {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* RADIO OCULTO */
+.prioridad-radio {
+    display: none;
+}
+
+/* CHIP BASE */
+.prioridad-chip,
+.prioridad-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all .25s ease;
+    border: solid 2px transparent;
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+/* SOLO SELECTOR */
+.prioridad-chip {
+    cursor: pointer;
+    user-select: none;
+}
+
+    /* HOVER */
+    .prioridad-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0,0,0,.15);
+    }
+
+/* ACTIVO */
+.prioridad-radio:checked + .prioridad-chip {
+    transform: scale(1.05);
+    box-shadow: 0 10px 22px rgba(0,0,0,.2);
+}
+
+/* =========================================
+   COLORES
+========================================= */
+
+/* BAJA */
+.prioridad-baja {
+    background: var(--baja-background);
+    border-color: var(--baja-borde);
+    color: #1b4332;
+}
+
+/* MEDIA */
+.prioridad-media {
+    background: var(--media-background);
+    border-color: var(--media-borde);
+    color: #1e3a8a;
+}
+
+/* ALTA */
+.prioridad-alta {
+    background: var(--alta-background);
+    border-color: #fbbf24;
+    color: var(--alta-borde);
+}
+
+/* URGENTE */
+.prioridad-urgente {
+    background: var(--urgente-background);
+    border-color: var(--urgente-borde);
+    color: #881337;
+}

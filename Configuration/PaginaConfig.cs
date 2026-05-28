@@ -11,6 +11,7 @@ namespace ImOdNotes.Configuration
             {typeof(Nota), 8 },
             {typeof(Tarea), 10 },
             {typeof(Usuario), 10 },
+            {typeof(Rol), 10 },
             //{typeof() },
         };
         public static int Get<T>()

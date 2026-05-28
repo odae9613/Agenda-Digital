@@ -1,0 +1,37 @@
+﻿@model string?
+
+<div class="tipo-selector">
+
+    @{
+        var tipos = new List<string> { "Ingreso", "Gasto" };
+    }
+
+    @foreach (var tipo in tipos)
+    {
+        var isChecked = Model == tipo || (Model == null && tipo == "Gasto");
+
+        <input type="radio"
+               class="tipo-radio"
+               name="Tipo"
+               id="tipo_@tipo"
+               value="@tipo"
+               autocomplete="off"
+        @(isChecked ? "checked" : "") />
+
+        <label class="tipo-chip tipo-@(tipo.ToLower())" for="tipo_@tipo">
+
+            @if (tipo == "Ingreso")
+            {
+                <i class="bi bi-arrow-down-circle"></i>
+            }
+            else
+            {
+                <i class="bi bi-arrow-up-circle"></i>
+            }
+
+            @tipo
+
+        </label>
+    }
+
+</div>

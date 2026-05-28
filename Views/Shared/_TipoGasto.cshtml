@@ -1,0 +1,16 @@
+﻿@model string
+
+<div class="tipo-chip tipo-@(Model.ToLower())">
+
+    @if (Model == "Ingreso")
+    {
+        <i class="bi bi-arrow-down-circle"></i>
+    }
+    else
+    {
+        <i class="bi bi-arrow-up-circle"></i>
+    }
+
+    <span>@Model</span>
+
+</div>

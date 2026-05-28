@@ -1,0 +1,43 @@
+﻿@model ImOdNotes.Core.Enums.Prioridad?
+
+<div class="prioridad-selector">
+
+    @foreach (var item in Html.GetEnumSelectList<ImOdNotes.Core.Enums.Prioridad>())
+    {
+        var isChecked = Model != null &&
+                        item.Value == ((int)Model).ToString();
+
+        <input type="radio"
+               class="prioridad-radio"
+               name="Prioridad"
+               id="prioridad_@item.Value"
+               value="@item.Value"
+               autocomplete="off"
+        @(isChecked ? "checked" : "") />
+
+        <label class="prioridad-chip prioridad-@item.Text.ToLower()"
+               for="prioridad_@item.Value">
+
+            @if (item.Text == "Baja")
+            {
+                <i class="bi bi-emoji-smile"></i>
+            }
+            else if (item.Text == "Media")
+            {
+                <i class="bi bi-lightning"></i>
+            }
+            else if (item.Text == "Alta")
+            {
+                <i class="bi bi-fire"></i>
+            }
+            else if (item.Text == "Urgente")
+            {
+                <i class="bi bi-exclamation-triangle"></i>
+            }
+
+            @item.Text
+
+        </label>
+    }
+
+</div>

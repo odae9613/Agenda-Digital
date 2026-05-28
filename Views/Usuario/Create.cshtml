@@ -8,13 +8,23 @@
 }
 @section MenuPagina {
 	@{
-		await Html.RenderPartialAsync("_MenuAsideUsuarios");
+		await Html.RenderPartialAsync("_MenuAsideHome");
 	}
 }
 
 <div id="pagina">
 	<div id="principal">
-		<h3>Crear usuario</h3>
+		<div class="opcionesHeader">
+
+			<div class="tituloOpciones">
+				<h2>
+					<i class="bi bi-people"></i>
+					Crear usuario
+				</h2>
+			</div>
+			<partial name="_MenuAsideUsuarios" />
+
+		</div>
 		<hr />
 		<form asp-action="Create" method="post">
 			<div class="row">

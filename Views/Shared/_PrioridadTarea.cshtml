@@ -1,0 +1,24 @@
+﻿@model ImOdNotes.Core.Enums.Prioridad
+
+<span class="prioridad-badge prioridad-@Model.ToString().ToLower()">
+
+    @if (Model == ImOdNotes.Core.Enums.Prioridad.Baja)
+    {
+        <i class="bi bi-emoji-smile"></i>
+    }
+    else if (Model == ImOdNotes.Core.Enums.Prioridad.Media)
+    {
+        <i class="bi bi-lightning"></i>
+    }
+    else if (Model == ImOdNotes.Core.Enums.Prioridad.Alta)
+    {
+        <i class="bi bi-fire"></i>
+    }
+    else if (Model == ImOdNotes.Core.Enums.Prioridad.Urgente)
+    {
+        <i class="bi bi-exclamation-triangle"></i>
+    }
+
+    @Model
+
+</span>

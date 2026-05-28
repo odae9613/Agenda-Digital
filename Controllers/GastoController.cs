@@ -156,10 +156,6 @@ namespace ImOdNotes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Monto,FechaCreacion,FechaActualizacion,Notas,Tipo,Favorito,CategoriaId")] Gasto gasto)
         {
-            if (id != gasto.Id)
-            {
-                return NotFound();
-            }
 
             // Usuario autenticado
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -167,6 +163,11 @@ namespace ImOdNotes.Controllers
             if (!int.TryParse(userIdClaim, out int usuarioId))
             {
                 return Unauthorized();
+            }
+
+            if (id != gasto.Id)
+            {
+                return NotFound();
             }
 
             // Buscar la nota original del usuario
@@ -178,14 +179,6 @@ namespace ImOdNotes.Controllers
                 return NotFound();
             }
 
-            // Actualizar SOLO los campos editables
-            gastoDb.Titulo = gasto.Titulo;
-            gastoDb.Monto = gasto.Monto;
-            gastoDb.Notas = gasto.Notas;
-            gastoDb.Tipo = gasto.Tipo;
-            gastoDb.Favorito = gasto.Favorito;
-            gastoDb.CategoriaId = gasto.CategoriaId;
-
             // Mantener usuario logeado
             gastoDb.UsuarioId = usuarioId;
             // Fecha actualización
@@ -195,6 +188,14 @@ namespace ImOdNotes.Controllers
             {
                 try
                 {
+                    // Actualizar SOLO los campos editables
+                    gastoDb.Titulo = gasto.Titulo;
+                    gastoDb.Monto = gasto.Monto;
+                    gastoDb.Notas = gasto.Notas;
+                    gastoDb.Tipo = gasto.Tipo;
+                    gastoDb.Favorito = gasto.Favorito;
+                    gastoDb.CategoriaId = gasto.CategoriaId;
+
                     //_context.Update(gasto);
                     await _context.SaveChangesAsync();
                 }
@@ -211,9 +212,7 @@ namespace ImOdNotes.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.CategoriaId = new SelectList(_context.CategoriaGastos, "Id", "Nombre", gasto.CategoriaId);
-            //ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Apellido01", gasto.UsuarioId);
-            return View(gasto);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Gasto/Delete/5

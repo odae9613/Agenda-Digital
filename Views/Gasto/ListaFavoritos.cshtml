@@ -55,7 +55,7 @@
 							@Html.DisplayFor(modelItem => item.Notas)
 						</td>
 						<td>
-							@Html.DisplayFor(modelItem => item.Tipo)
+							<partial name="_TipoGasto" model="item.Tipo" />
 						</td>
 						<td>
 							@Html.DisplayFor(modelItem => item.CategoriaGasto.Nombre)

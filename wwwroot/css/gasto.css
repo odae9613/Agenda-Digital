@@ -1,4 +1,71 @@
 ﻿
+/* ocultar radio */
+.tipo-radio {
+    display: none;
+}
+
+/* contenedor */
+.tipo-selector {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* botón base */
+.tipo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all .25s ease;
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: 0 6px 14px rgba(0,0,0,.06);
+    backdrop-filter: blur(8px);
+}
+
+    /* hover suave */
+    .tipo-chip:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 10px 20px rgba(0,0,0,.10);
+    }
+
+/* seleccionado */
+.tipo-radio:checked + .tipo-chip {
+    transform: scale(1.06);
+    box-shadow: 0 14px 26px rgba(0,0,0,.14);
+}
+
+/* iconos */
+.tipo-chip i {
+    transition: transform .25s ease;
+    opacity: .9;
+}
+
+.tipo-chip:hover i {
+    transform: rotate(-8deg) scale(1.08);
+    opacity: 1;
+}
+
+/* INGRESO */
+.tipo-ingreso {
+    background: linear-gradient(135deg, #d9fbe3, #b7f0c7);
+    border-color: #7fdba0;
+    color: #145a32;
+}
+
+/* GASTO */
+.tipo-gasto {
+    background: linear-gradient(135deg, #ffe0ea, #ffb6c9);
+    border-color: #ff7aa2;
+    color: #5a1f2e;
+}
+
+/*  Balance   */
 #paginaFinanzas {
     padding: 10px;
 }

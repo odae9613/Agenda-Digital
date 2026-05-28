@@ -51,10 +51,10 @@
 					@Html.DisplayFor(model => model.CategoriaGasto.Nombre)
 				</dd>
 				<dt class="col-sm-3">
-					@Html.DisplayNameFor(model => model.Usuario)
+					@Html.DisplayNameFor(model => model.Tipo)
 				</dt>
 				<dd class="col-sm-9">
-					@Html.DisplayFor(model => model.Usuario.Apellido01)
+					<partial name="_TipoGasto" model="Model.Tipo" />
 				</dd>
 			</dl>
 		</div>

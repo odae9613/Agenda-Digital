@@ -43,7 +43,7 @@
 				@Html.DisplayNameFor(model => model.Prioridad)
 			</dt>
 			<dd class="col-sm-9">
-				@Html.DisplayFor(model => model.Prioridad)
+				<partial name="_PrioridadTarea" model="Model.Prioridad" />
 			</dd>
 			<dt class="col-sm-3">
 				@Html.DisplayNameFor(model => model.FechaVencimiento)

@@ -34,8 +34,6 @@ namespace ImOdNotes.Controllers
         [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index(int page = 1)
         {
-            var usuario = _context.Usuarios.Include(u => u.Rol);
-
             //  PAGINACIÓN MANUAL
             var usuariosQuery = _context.Usuarios;
             var paginado = _paginacionService.Paginacion<Usuario>(usuariosQuery, page);

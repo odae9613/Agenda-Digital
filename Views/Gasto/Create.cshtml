@@ -51,33 +51,7 @@
 						<div class="form-group col-md-6">
 							<label class="control-label">Tipo</label>
 
-							<div class="d-flex gap-2 flex-wrap">
-								@foreach (var item in Html.GetEnumSelectList<TipoGasto>())
-								{
-									<input type="radio"
-										   class="btn-check"
-										   name="Tipo"
-										   id="tipo_@item.Value"
-										   value="@item.Text"
-										   autocomplete="off"
-										   required />
-
-									<label class="spring-chip @(item.Text == "Ingreso" ? "tipo-ingreso" : "tipo-gasto")"
-										   for="tipo_@item.Value">
-
-										@if (item.Text == "Ingreso")
-										{
-											<i class="bi bi-arrow-down-circle"></i>
-										}
-										else
-										{
-											<i class="bi bi-arrow-up-circle"></i>
-										}
-
-										@item.Text
-									</label>
-								}
-							</div>
+							<partial name="_TipoGastoCrEd" model="null" />
 
 							<span asp-validation-for="Tipo" class="text-danger"></span>
 						</div>
