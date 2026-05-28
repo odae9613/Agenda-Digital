@@ -194,7 +194,7 @@ namespace ImOdNotes.Controllers
             eventoDb.UsuarioId = usuarioId;
 
             await _context.SaveChangesAsync();
-                
+
             ViewBag.CategoriaId = new SelectList(_context.CategoriaEventos
                 .Where(w => w.UsuarioId == usuarioId), "Id", "Nombre", evento.CategoriaId);
             return RedirectToAction(nameof(Index));
@@ -276,6 +276,13 @@ namespace ImOdNotes.Controllers
 
             return View(paginado);
         }
+
+        public ActionResult Detalle(int id)
+        {
+            var evento = _context.Eventos.Find(id);
+            return PartialView("_DetalleEvento", evento);
+        }
+
 
         private bool EventoExists(int id)
         {

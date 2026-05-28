@@ -301,6 +301,22 @@ namespace ImOdNotes.Controllers
             return View(paginado);
         }
 
+        public ActionResult Detalle(int id)
+        {
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!int.TryParse(userIdClaim, out int usuarioId))
+                return Unauthorized();
+
+            var tarea = _context.Tareas
+                .FirstOrDefault(t => t.Id == id && t.UsuarioId == usuarioId);
+
+            if (tarea == null)
+                return NotFound();
+
+            return PartialView("_DetalleTarea", tarea);
+        }
+
         private bool TareaExists(int id)
         {
             return _context.Tareas.Any(e => e.Id == id);

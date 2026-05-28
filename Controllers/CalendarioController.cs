@@ -1,11 +1,15 @@
 ﻿using System.Security.Claims;
 using ImOdNotes.Core.Entities;
 using ImOdNotes.Data.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace ImOdNotes.Controllers
 {
+    [Authorize]
+    [Route("Calendario")]
     public class CalendarioController : Controller
     {
         private readonly ILogger<CalendarioController> _logger;
@@ -18,9 +22,11 @@ namespace ImOdNotes.Controllers
         
         public IActionResult Calendar()
         {
-            List<object> items = new List<object>();
-
-            ViewBag.User = User.Identity.Name;
+            return View();
+        }
+        [HttpGet("GetTareasEventos")]
+        public IActionResult GetTareasEventos()
+        {
             var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (!int.TryParse(userIdClaim, out int usuarioId))
@@ -28,19 +34,13 @@ namespace ImOdNotes.Controllers
                 return Unauthorized();
             }
 
-
-            // EVENTOS
             var eventos = _context.Eventos
-                .Where(w => w.UsuarioId == usuarioId)
-                .ToList();
-
-            foreach (var evento in eventos)
-            {
-                items.Add(new
+                .Where(e => e.UsuarioId == usuarioId && e.FechaInicio != null)
+                .Select(e => new
                 {
-                    title = evento.Titulo,
-                    start = evento.FechaInicio,
-                    end = evento.FechaInicio.AddHours(1),
+                    id = e.Id,
+                    title = e.Titulo,
+                    start = e.FechaInicio.ToString("yyyy-MM-ddTHH:mm:ss"),
 
                     backgroundColor = "#8FB9B3",
                     borderColor = "#6D9B95",
@@ -49,40 +49,38 @@ namespace ImOdNotes.Controllers
                     extendedProps = new
                     {
                         tipo = "Evento",
-                        descripcion = evento.Descripcion
+                        descripcion = e.Descripcion
                     }
-                });
-            }
-
-            // TAREAS
-            var tareas = _context.Tareas
-                .Where(w => w.UsuarioId == usuarioId)
+                })
                 .ToList();
 
-            foreach (var tarea in tareas)
-            {
-                if (tarea.FechaVencimiento != null)
+            var tareas = _context.Tareas
+                .Include(t => t.CategoriaTarea)
+                .Where(t => t.UsuarioId == usuarioId &&
+                            t.FechaVencimiento != null)
+                .Select(t => new
                 {
-                    items.Add(new
+                    id = t.Id,
+                    title = t.Titulo,
+                    start = t.FechaVencimiento.Value.ToString("yyyy-MM-ddTHH:mm:ss"),
+
+                    backgroundColor = "#D6B6D5",
+                    borderColor = "#B58DB6",
+                    textColor = "#ffffff",
+
+                    extendedProps = new
                     {
-                        title = tarea.Titulo,
-                        start = tarea.FechaVencimiento,
+                        tipo = "Tarea",
+                        descripcion = t.Descripcion
+                    }
+                })
+                .ToList();
 
-                        backgroundColor = "#D6B6D5",
-                        borderColor = "#B58DB6",
+            var items = eventos.Cast<object>()
+                .Concat(tareas.Cast<object>())
+                .ToList();
 
-                        extendedProps = new
-                        {
-                            tipo = "Tarea",
-                            descripcion = tarea.Descripcion
-                        }
-                    });
-                }
-            }
-            //ViewBag.idUsuario = Id;
-            ViewBag.Eventos = JsonConvert.SerializeObject(items);
-
-            return View();
+            return Json(items);
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model ImOdNotes.Core.Entities.Tarea
+
+<h4>@Model.Titulo</h4>
+
+<p>
+    <strong>Vencimiento:</strong>
+    @(Model.FechaVencimiento.HasValue
+        ? Model.FechaVencimiento.Value.ToString("dd/MM/yyyy HH:mm")
+        : "Sin fecha")
+</p>
+
+<p>
+    <strong>Descripción:</strong>
+    @Model.Descripcion
+</p>

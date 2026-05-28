@@ -10,52 +10,53 @@
 	}
 
 	<div id="calendar"></div>
+	@* Modal *@
+	<div class="modal fade" id="modalCalendario" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
 
+				<div class="modal-header">
+					<h5 class="modal-title">Detalle del evento</h5>
+					<button type="button"
+							class="btn-close"
+							data-bs-dismiss="modal">
+					</button>
+				</div>
+
+				<div class="modal-body" id="modalBody">
+				</div>
+
+			</div>
+		</div>
+	</div>
 	@section Scripts {
 		<script>
-				document.addEventListener('DOMContentLoaded', function(){
-					var calendarEl = document.getElementById('calendar');
-					var calendar = new FullCalendar.Calendar(calendarEl,{
-						initialView: 'dayGridMonth', //Calendario mensual
-						locale: 'es-ES',
-						firstDay: 1,
-						buttonText: {
-							today: 'Hoy',
-							month: 'Mes',
-							week: 'Semana',
-							day: 'Dia',
-							list: 'Lista'
-									},
-						noEventsContent: 'No hay eventos para mostrar',
-						timeZone: 'local',
+				document.addEventListener('DOMContentLoaded', function () {
 
-						headerToolbar:{
-							left: 'prev,next today',
-							center: 'title',	//Mes
-							right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-						},
-						events: @Html.Raw(ViewBag.Eventos ?? "[]"),
-										
-						eventDidMount: function(info){
-							const tipo = info.event.extendedProps.tipo;
-							const color = colores[tipo];
-							if (!color)
-							return;
+				var calendarEl = document.getElementById('calendar');
 
-							info.el.style.backgroundColor = color.bg;
-							info.el.style.borderColor = color.border;
-							info.el.style.color = "#ffffff";
-						},
-						eventColor: '#009191',
-						eventBackgroundColor: '#8FB9B3',
-						eventBorderColor: '#6D9B95',
-						eventTextColor: '#ffffff',
-						editable: true,
-						selectable: true,
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+
+					initialView: 'dayGridMonth',
+					locale: 'es-ES',
+					firstDay: 1,
+					
+					events: '/Calendario/GetTareasEventos',
+
+					eventClick: function (info) {
+
+						const tipo = info.event.extendedProps?.tipo;
+
+						if (tipo === "Evento") {
+							abrirModalEvento(info.event.id);
+						} else if (tipo === "Tarea") {
+							abrirModalTarea(info.event.id);
+						}
+					}
 					});
+
 					calendar.render();
 				});
 		</script>
 	}
 </div>
-@* <partial name="_botonEventosListaFavoritos" /> *@
